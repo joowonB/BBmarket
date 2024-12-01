@@ -1,0 +1,238 @@
+<html lang="ko"></html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../static/images/favicon.png">
+    <link rel="stylesheet" href="../../static/css/info_edit.css">
+    <script src="../../static/scripts/index.js"></script>
+    <title>별별마켓</title>
+    
+</head>
+<body>
+    <div class="sign-up">
+        <div class="header">
+          <div class="header-2">
+            <div class="app-down">
+              <!--앱 다운로드 아이콘-->
+              <img class="icon-app-download-2" src="../../static/images/icon_app_download.png" />
+              <div class="div">앱다운로드</div>
+            </div>
+            <!--로그인,회원가입-->
+            <div class="sign-up2">
+              <a href="sign_up.html" class="div2">회원가입</a>
+            </div>
+            <div class="sign-in">
+              <a href="sign_in.html" class="div2">로그인</a>
+            </div>
+          </div>
+        </div>
+        <!--판매,내상점,채팅-->
+        <div class="nav">
+          <div class="nav-2">
+            <div class="nav-3">
+              <a href="main.html">
+              <img class="icon-market-1" src="../../static/images/icon_market.svg" />
+              </a>
+              <div class="menu-bar">
+                <div class="sale">
+                  <img class="icon-sale-1" src="../../static/images/icon-sale.png" />
+                  <a href="sign_in.html" class="div3">판매하기</a>
+                </div>
+                <div class="my-shop">
+                  <img class="icon-myshop-1" src="../../static/images/icon-myshop.png" />
+                  <a href="sign_in.html" class="div3">내상점</a>
+                </div>
+                <div class="chat">
+                  <img class="icon-chat-1" src="../../static/images/icon-chat.png" />
+                  <a href="sign_in.html" class="div3">채팅</a>
+                </div>
+              </div>
+              <!--상품 검색-->
+              <div class="search-bar">
+                <input class="div4" type="text" placeholder="상품명 입력" id="searchInput" />
+                <div class="search-frame">
+                  <img class="search" src="../../static/images/search.svg" id="searchButton" />
+                </div>
+              </div>
+            </div>
+            <div class="nav-4">
+
+            </div>
+          </div>
+        </div>
+        <!--지도 기능-->
+    <a href="map_page.html">
+    <div class="map">
+      <img class="map2" src="../../static/images/icon_map.svg" />
+      <div class="div8">
+        우리동네
+        <br />
+        매물 보기
+      </div>
+    </div>
+    </a>
+    <!--지도 기능 끝-->
+        <div class="signup-form">
+          <div class="sing-up">
+            <div class="div7">회원정보 수정</div>
+          </div>
+          <div class="id-filed">
+            <div class="div8">아이디</div>
+          </div>
+          <div class="pw-filed">
+            <div class="div8">비밀번호</div>
+          </div>
+          <div class="id-form">
+            <div class="id-input">
+              <input type="text" class="_4-16" placeholder="(영문/숫자, 4~16자)">
+            </div>
+          </div>
+          <div class="pw-form">
+            <div class="pw-input">
+              <input type="password" class="_8-16" placeholder="(영문/숫자, 8~16자)">
+            </div>
+          </div>
+          <div class="pw-filed-2">
+            <div class="div8">비밀번호 확인</div>
+          </div>
+          <div class="pw-form-2">
+            <input type="password" class="pw-input-2">
+          </div>
+          <div class="name-filed">
+            <div class="div8">이름</div>
+          </div>
+          <div class="name-form">
+            <input type="text" class="pw-input-2">
+          </div>
+          <div class="addr-filed">
+            <div class="div8">주소</div>
+          </div>
+          <div class="addr-form">
+            <!---->
+            <input type="text" id="sample6_postcode" placeholder="우편번호">
+            <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" class="custom-button"><br>
+            <input type="text" id="sample6_address" placeholder="주소"><br>
+            <input type="text" id="sample6_detailAddress" placeholder="상세주소">
+            <input type="text" id="sample6_extraAddress" placeholder="참고항목">
+          </div>
+          <div class="phone-form">
+            <!-- 선택 상자를 텍스트 박스로 변환 -->
+            <input type="text" class="ph-select">
+            
+            <!-- 첫 번째 전화번호 입력 상자 -->
+            <input type="text" class="ph-input-1">
+            
+            <!-- 두 번째 전화번호 입력 상자 -->
+            <input type="text" class="ph-input-2">
+            
+            <div class="line-1"></div>
+            <div class="line-2"></div>
+          </div>
+          <div class="phone-filed">
+            <div class="div8">휴대전화</div>
+          </div>
+          <div class="email-filed">
+            <div class="div8">이메일</div>
+          </div>
+          <div class="name-form2">
+            <input type="text" class="pw-input-2">
+          </div>
+          <div class="frame-9">
+            <button class="signup-button">
+              <div class="div10">회원정보수정</div>
+            </button>
+            <button class="cancel-button">
+              <div class="div10">취소</div>
+            </button>
+            <!-- 회원탈퇴 버튼에 onclick 이벤트 추가 -->
+            <button class="delete-button" onclick="confirmDeletion()">
+              <div class="div11">회원탈퇴</div>
+            </button>
+          </div>
+          <div class="line-12"></div>
+          <div class="line-13"></div>
+          
+        </div>
+      </div>
+      
+      <!--회원가입 주소api-->
+      <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+    function sample6_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var addr = ''; // 주소 변수
+                var extraAddr = ''; // 참고항목 변수
+
+                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    addr = data.roadAddress;
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    addr = data.jibunAddress;
+                }
+
+                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+                if(data.userSelectedType === 'R'){
+                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                        extraAddr += data.bname;
+                    }
+                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                    if(data.buildingName !== '' && data.apartment === 'Y'){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                    if(extraAddr !== ''){
+                        extraAddr = ' (' + extraAddr + ')';
+                    }
+                    // 조합된 참고항목을 해당 필드에 넣는다.
+                    document.getElementById("sample6_extraAddress").value = extraAddr;
+                
+                } else {
+                    document.getElementById("sample6_extraAddress").value = '';
+                }
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('sample6_postcode').value = data.zonecode;
+                document.getElementById("sample6_address").value = addr;
+                // 커서를 상세주소 필드로 이동한다.
+                document.getElementById("sample6_detailAddress").focus();
+            }
+        }).open();
+    }
+</script>
+
+<script>
+  function confirmDeletion() {
+    const userConfirmed = confirm("정말로 탈퇴하시겠습니까?");
+    if (userConfirmed) {
+      // '예'를 눌렀을 때 실행할 코드
+      alert("탈퇴가 완료되었습니다.");
+      // 여기서 실제 탈퇴 처리 코드나 페이지 이동 등을 추가할 수 있습니다.
+    } else {
+      // '아니오'를 눌렀을 때 실행할 코드
+      alert("탈퇴가 취소되었습니다.");
+    }
+  }
+</script>
+
+<!--카테고리 목록-->
+<div class="dropdown">
+  <div class="dropdown-title">
+    <span class="hamburger-menu"></span>
+  </div>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="{% url 'category_view' '1' %}">전자기기</a></li>
+    <li><a class="dropdown-item" href="{% url 'category_view' '2' %}">의류</a></li>
+    <li><a class="dropdown-item" href="{% url 'category_view' '3' %}">가구</a></li>
+    <li><a class="dropdown-item" href="{% url 'category_view' '4' %}">공구/도구</a></li>
+  </ul>
+</div>
+      
+</body>
+</html>

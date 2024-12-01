@@ -1,0 +1,146 @@
+<!-- product_edit.html -->
+<html lang="ko">
+<head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="{% static 'images/favicon.png' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/edit_product.css' %}">
+    <script src="{% static 'javascript/file_upload.js' %}"></script>
+    <title>별별마켓 - 상품 수정</title>
+</head>
+<body>
+    <div class="product-sale">
+        <div class="header">
+            <div class="header-2">
+                <div class="app-down">
+                    <img class="icon-app-download-2" src="{% static 'images/icon_app_download.png' %}" />
+                    <div class="div">앱다운로드</div>
+                </div>
+                <div class="sign-up">
+                    <a href="{% url 'my_page' %}" class="div3">내 정보</a>
+                </div>
+                <div class="sign-in">
+                    <form method="POST" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="div2">로그아웃</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="nav">
+            <div class="nav-2">
+                <div class="nav-3">
+                    <a href="{% url 'main' %}">
+                        <img class="icon-market-1" src="{% static 'images/icon_market.svg' %}" />
+                    </a>
+                    <div class="menu-bar">
+                        <div class="sale">
+                            <img class="icon-sale-1" src="{% static 'images/icon-sale.png' %}" />
+                            <a href="{% url 'product_sale' %}" class="div3">판매하기</a>
+                        </div>
+                        <div class="my-shop">
+                            <img class="icon-myshop-1" src="{% static 'images/icon-myshop.png' %}" />
+                            <a href="{% url 'my_page' %}" class="div3">내상점</a>
+                        </div>
+                        <div class="chat">
+                            <img class="icon-chat-1" src="{% static 'images/icon-chat.png' %}" />
+                            <div class="div3">채팅</div>
+                        </div>
+                    </div>
+                    <div class="search-bar">
+                        <input class="div4" type="text" placeholder="상품명 입력" id="searchInput" />
+                        <div class="search-frame">
+                            <img class="search" src="{% static 'images/search.svg' %}" id="searchButton" />
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-4"></div>
+            </div>
+        </div>
+        <div class="frame-16"></div>
+        <div class="product-wrap">
+            <div class="product-info">
+                <div class="div6">상품 수정</div>
+            </div>
+            <div class="line-1"></div>
+
+            <form method="POST" action="{% url 'product_edit' product.id %}" enctype="multipart/form-data">  <!-- 수정된 부분 -->
+              {% csrf_token %}
+              <div class="product-group">
+                  <div class="product-label">
+                      <div class="div7">상품이미지</div>
+                  </div>
+                  <div class="product-list">
+                      <div class="info-image">
+                          <input type="file" id="imageUpload" accept="image/*" style="display: none" name="image" />
+                          <img class="user" src="{{ product.product_image_url }}" id="userImage" alt="상품 이미지 미리보기" />
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="product-group-2">
+                  <div class="product-label-2">
+                      <div class="div8">상품명</div>
+                  </div>
+                  <div class="product-input">
+                      <input type="text" class="div9" placeholder="상품명을 입력해 주세요" name="name" value="{{ product.product_name }}" required />
+                  </div>
+              </div>
+          
+              <div class="product-group-3">
+                  <div class="product-label-3">
+                      <div class="div12">설명</div>
+                  </div>
+                  <div class="product-input-2">
+                      <textarea class="div9" placeholder="상품에 대한 정보를 기재해 주세요" name="description" required>{{ product.product_description }}</textarea>
+                  </div>
+              </div>
+          
+              <div class="price-frame">
+                  <div class="div13">가격</div>
+              </div>
+              <div class="price-frame2">
+                  <div class="price-frame-2">
+                      <div class="div14">가격</div>
+                  </div>
+                  <div class="price-frame-3">
+                      <div class="price-input">
+                          <input type="text" class="div9" id="priceInput" placeholder="가격을 입력해 주세요" name="price" value="{{ product.product_price|floatformat:0 }}" required />
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="footer">
+                  <button type="submit" class="product-register">
+                      <div class="div15">수정하기</div>
+                  </button>
+              </div>
+          </form>
+        </div>
+
+        <a href="{% url 'map_page' %}">
+            <div class="map">
+                <img class="map2" src="{% static 'images/icon_map.svg' %}" />
+                <div class="div16">
+                    우리동네
+                    <br />
+                    매물 보기
+                </div>
+            </div>
+        </a>
+
+        <div class="dropdown">
+            <div class="dropdown-title">
+                <span class="hamburger-menu"></span>
+            </div>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'category_view' '1' %}">전자기기</a></li>
+                <li><a class="dropdown-item" href="{% url 'category_view' '2' %}">의류</a></li>
+                <li><a class="dropdown-item" href="{% url 'category_view' '3' %}">가구</a></li>
+                <li><a class="dropdown-item" href="{% url 'category_view' '4' %}">공구/도구</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% load custom_filters %}{% load humanize %}{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'images/favicon.png' %}">
+    <link rel="stylesheet" href="{% static 'css/info_edit.css' %}">
+    <title>별별마켓</title>
+</head>
+<body>
+    <div class="sign-up">
+        <div class="header">
+            <div class="header-2">
+                <div class="app-down">
+                    <img class="icon-app-download-2" src="{% static 'images/icon_app_download.png' %}" alt="앱 다운로드 아이콘">
+                    <div class="div">앱다운로드</div>
+                </div>
+                <div class="sign-up">
+                    {% if request.user.is_authenticated %}
+                        {% if request.user.user_id == 4 %}
+                            <a href="{% url 'admin_page' %}" class="div3">관리자</a>
+                        {% else %}
+                            <a href="{% url 'my_page' %}" class="div3">내 정보</a>
+                        {% endif %}
+                    {% else %}
+                        <a href="{% url 'sign_up' %}" class="div3">회원가입</a>
+                    {% endif %}
+                </div>
+                <div class="sign-in">
+                    {% if request.user.is_authenticated %}
+                        <form method="POST" action="{% url 'logout' %}">
+                            {% csrf_token %}
+                            <button type="submit" class="div2">로그아웃</button>
+                        </form>
+                    {% else %}
+                        <a href="{% url 'sign_in' %}" class="div2">로그인</a>
+                    {% endif %}
+                </div>
+                <div class="profile-edit">
+                    {% if request.user.is_authenticated and request.user.user_id != 4 %}
+                        <a href="{% url 'profile_update' %}" class="div1">정보수정</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="nav">
+            <div class="nav-2">
+                <div class="nav-3">
+                    <a href="{% url 'main' %}">
+                        <img class="icon-market-1" src="{% static 'images/icon_market.svg' %}">
+                    </a>
+                    <div class="menu-bar">
+                        <div class="sale">
+                            <img class="icon-sale-1" src="{% static 'images/icon-sale.png' %}">
+                            {% if request.user.is_authenticated %}
+                                <a href="{% url 'product_sale' %}" class="div3">판매하기</a>
+                            {% else %}
+                                <a href="{% url 'sign_in' %}" class="div3">판매하기</a>
+                            {% endif %}
+                        </div>
+                        <div class="my-shop">
+                            <img class="icon-myshop-1" src="{% static 'images/icon-myshop.png' %}">
+                            {% if request.user.is_authenticated %}
+                                <a href="{% url 'my_page' %}" class="div3">내 상점</a>
+                            {% else %}
+                                <a href="{% url 'sign_in' %}" class="div3">내 상점</a>
+                            {% endif %}
+                        </div>
+                        <div class="chat">
+                            <img class="icon-chat-1" src="{% static 'images/icon-chat.png' %}">
+                            <a href="{% url 'main' %}" class="div3">채팅</a>
+                        </div>
+                    </div>
+                    <form class="search-bar" method="GET" action="{% url 'search' %}">
+                        {% csrf_token %}
+                        <input class="div4" type="text" placeholder="상품명 입력" name="q" id="searchInput" aria-label="Search">
+                        <button type="submit" class="search-frame">
+                            <img class="search" src="{% static 'images/search.svg' %}" id="searchButton" alt="검색">
+                        </button>
+                    </form>
+                </div>
+                <div class="nav-4">
+                </div>
+            </div>
+        </div>
+        <!-- 지도 기능 -->
+        <a href="{% url 'map_page' %}">
+            <div class="map">
+                <img class="map2" src="{% static 'images/icon_map.svg' %}">
+                <div class="div8">우리동네<br>매물 보기</div>
+            </div>
+        </a>
+        <!-- 회원정보 수정 -->
+        <form method="POST" action="{% url 'profile_update' %}">
+          {% csrf_token %}
+          <div class="signup-form">
+              <div class="sing-up">
+                  <div class="div7">회원정보 수정</div>
+              </div>
+      
+              <!-- 아이디 -->
+              <div class="id-filed">
+                  <div class="div8">아이디</div>
+              </div>
+              <div class="id-form">
+                  <div class="id-input">
+                      <input type="text" class="_4-16" name="user_userid" value="{{ user.user_userid }}" readonly>
+                  </div>
+              </div>
+      
+              <!-- 비밀번호 -->
+              <div class="pw-filed">
+                  <div class="div8">비밀번호</div>
+              </div>
+              <div class="pw-form">
+                  <div class="pw-input">
+                      <input type="password" class="_8-16" name="password" placeholder="(영문/숫자, 8~16자)">
+                  </div>
+              </div>
+              <div class="pw-filed-2">
+                  <div class="div8">비밀번호 확인</div>
+              </div>
+              <div class="pw-form-2">
+                  <input type="password" class="pw-input-2" name="password_confirm" placeholder="비밀번호 확인">
+              </div>
+      
+              <!-- 이름 -->
+              <div class="name-filed">
+                  <div class="div8">이름</div>
+              </div>
+              <div class="name-form">
+                  <input type="text" class="pw-input-2" name="user_name" value="{{ user.user_name }}" required>
+              </div>
+      
+              <!-- 주소 -->
+              <div class="addr-filed">
+                  <div class="div8">주소</div>
+              </div>
+              <div class="addr-form">
+                  <input type="text" id="sample6_address" name="user_address" value="{{ user.user_address }}" required>
+                  <input type="text" id="sample6_postcode" placeholder="우편번호">
+            <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" class="custom-button"><br>
+            <input type="text" id="sample6_detailAddress" placeholder="상세주소">
+            <input type="text" id="sample6_extraAddress" placeholder="참고항목">
+              </div>
+      
+              <!-- 휴대전화 -->
+              <div class="phone-filed">
+                  <div class="div8">휴대전화</div>
+              </div>
+              <div class="phone-form">
+                  <input type="text" class="ph-select" name="phone_first" value="{{ user.user_phoneNum|slice:":3" }}" maxlength="3">
+                  <input type="text" class="ph-input-1" name="phone_middle" value="{{ user.user_phoneNum|slice:"3:7" }}" maxlength="4">
+                  <input type="text" class="ph-input-2" name="phone_last" value="{{ user.user_phoneNum|slice:"7:" }}" maxlength="4">
+                  <div class="line-1"></div>
+            <div class="line-2"></div>
+              </div>
+      
+              <!-- 이메일 -->
+              <div class="email-filed">
+                  <div class="div8">이메일</div>
+              </div>
+              <div class="name-form2">
+                  <input type="email" class="pw-input-2" name="user_email" value="{{ user.user_email }}" readonly>
+              </div>
+      
+              <!-- 버튼 -->
+              <div class="frame-9">
+                  <button class="signup-button" type="submit">
+                      <div class="div10">회원정보수정</div>
+                  </button>
+                  <button class="cancel-button" type="button" onclick="window.history.back();">
+                      <div class="div10">취소</div>
+                  </button>
+                  <button class="delete-button" type="button" onclick="confirmDeletion()">
+                      <div class="div11">회원탈퇴</div>
+                  </button>
+              </div>
+              <div class="line-12"></div>
+          <div class="line-13"></div>
+          </div>
+      </form>
+    </div>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script>
+        function sample6_execDaumPostcode() {
+            new daum.Postcode({
+                oncomplete: function(data) {
+                    var addr = '';
+                    var extraAddr = '';
+                    if (data.userSelectedType === 'R') {
+                        addr = data.roadAddress;
+                    } else {
+                        addr = data.jibunAddress;
+                    }
+                    if (data.userSelectedType === 'R') {
+                        if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+                            extraAddr += data.bname;
+                        }
+                        if (data.buildingName !== '' && data.apartment === 'Y') {
+                            extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                        }
+                        if (extraAddr !== '') {
+                            extraAddr = ' (' + extraAddr + ')';
+                        }
+                        document.getElementById('sample6_extraAddress').value = extraAddr;
+                    } else {
+                        document.getElementById('sample6_extraAddress').value = '';
+                    }
+                    document.getElementById('sample6_postcode').value = data.zonecode;
+                    document.getElementById('sample6_address').value = addr;
+                    document.getElementById('sample6_detailAddress').focus();
+                }
+            }).open();
+        }
+        function confirmDeletion() {
+            const userConfirmed = confirm('정말로 탈퇴하시겠습니까?');
+            if (userConfirmed) {
+                alert('탈퇴가 완료되었습니다.');
+                window.location.href = '{% url "delete_user_account" %}';
+            } else {
+                alert('탈퇴가 취소되었습니다.');
+            }
+        }
+    </script>
+</body>
+</html>

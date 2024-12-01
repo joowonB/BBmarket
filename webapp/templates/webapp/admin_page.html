@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../static/images/favicon.png">
+    <link rel="stylesheet" href="../../static/css/admin_page.css" />
+    <title>별별마켓</title>
+    <script src="../../static/javascript/categori.js"></script>
+    <script src="../../static/javascript/search.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+<body>
+  <div class="admin-page-1">
+    <div class="header">
+      <div class="header-2">
+        <div class="app-down">
+          <img class="icon-app-download-2" src="../../static/images/icon_app_download.png" />
+          <div class="div">앱다운로드</div>
+        </div>
+        <div class="sign-up">
+            {% if request.user.is_authenticated %}
+                {% if request.user.user_id == 4 %}
+                    <a href="{% url 'admin_page' %}" class="div3">관리자</a>
+                {% else %}
+                    <a href="{% url 'my_page' %}" class="div3">내 정보</a>
+                {% endif %}
+            {% else %}
+                <a href="{% url 'sign_up' %}" class="div3">회원가입</a>
+            {% endif %}
+          </div>
+        
+          <div class="sign-in">
+            {% if request.user.is_authenticated %}
+            <form method="POST" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <button type="submit" class="div2">로그아웃</button>
+            </form>
+            {% else %}
+            <a href="{% url 'sign_in' %}" class="div2">로그인</a>
+            {% endif %}
+          </div>
+      </div>
+    </div>
+    <div class="nav">
+      <div class="nav-2">
+        <div class="nav-3">
+          <a href="{% url 'main' %}">
+            <img
+              class="icon-market-1"
+              src="../../static/images/icon_market.svg"
+            />
+          </a>
+          <div class="menu-bar">
+            <div class="sale">
+              <img
+                class="icon-sale-1"
+                src="../../static/images/icon-sale.png"
+              />
+              {% if request.user.is_authenticated %}
+              <a href="{% url 'product_sale' %}" class="div3">판매하기</a>
+              {% else %}
+              <a href="{% url 'sign_in' %}" class="div3">판매하기</a>
+              {% endif %}
+            </div>
+            <div class="my-shop">
+              <img
+                class="icon-myshop-1"
+                src="../../static/images/icon-myshop.png"
+              />
+              {% if request.user.is_authenticated %}
+              <a href="{% url 'my_page' %}" class="div3">내상점</a>
+              {% else %}
+              <a href="{% url 'sign_in' %}" class="div3">내상점</a>
+              {% endif %}
+            </div>
+            <div class="chat">
+              <img class="icon-chat-1" src="../../static/images/icon-chat.png" />
+              <a href="sign_in.html" class="div3">채팅</a>
+            </div>
+          </div>
+          <!--상품 검색-->
+          <div class="search-bar">
+            <input class="div4" type="text" placeholder="상품명 입력" id="searchInput" />
+            <div class="search-frame">
+              <img class="search" src="../../static/images/search.svg" id="searchButton" />
+            </div>
+          </div>
+        </div>
+        <div class="nav-4">
+        </div>
+      </div>
+    </div>
+    <div class="product-wrap">
+        <div class="menu-bar2">
+          <div class="product" onclick="loadContent('product')">상품관리</div>
+          <div class="user" onclick="loadContent('user')">회원관리</div>
+          <div class="status" onclick="loadContent('stats')">통계현황</div>
+        </div>
+        <div class="title">
+          <div id="page-title" class="div6">회원목록</div> <!-- 이 부분에 ID를 추가 -->
+        </div>
+        <!--콘텐츠가 로드될 영역-->
+        <div id="content-area" ></div>
+      </div>
+
+      <a href="{% url 'map_page' %}">
+        <div class="map">
+          <img class="map2" src="../../static/images/icon_map.svg" />
+          <div class="div16">
+            우리동네
+            <br />
+            매물 보기
+          </div>
+        </div>
+      </a>
+
+      <div class="dropdown">
+        <div class="dropdown-title">
+            <span class="hamburger-menu"></span>
+        </div>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="{% url 'category_view' '1' %}">전자기기</a></li>
+          <li><a class="dropdown-item" href="{% url 'category_view' '2' %}">의류</a></li>
+          <li><a class="dropdown-item" href="{% url 'category_view' '3' %}">가구</a></li>
+          <li><a class="dropdown-item" href="{% url 'category_view' '4' %}">공구/도구</a></li>
+        </ul>
+      </div>
+      <div class = "cate">카테고리</div>
+    </div>
+
+  <!-- 분리된 loadContent.js 파일 추가 -->
+  <script src="../../static/javascript/loadContent.js"></script>
+  
+</body>
+</html>

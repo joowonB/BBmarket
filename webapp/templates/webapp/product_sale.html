@@ -1,0 +1,333 @@
+<html lang="ko">
+  {% load custom_filters %}{% load humanize %}{% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../../static/images/favicon.png" />
+    <link rel="stylesheet" href="../../static/css/product_sale.css" />
+
+
+
+
+    <title>별별마켓</title>
+  </head>
+  <body>
+    <div class="product-sale">
+      <div class="header">
+        <div class="header-2">
+          <div class="app-down">
+            <img
+              class="icon-app-download-2"
+              src="../../static/images/icon_app_download.png"
+            />
+            <div class="div">앱다운로드</div>
+          </div>
+          <div class="sign-up">
+            {% if request.user.is_authenticated %}
+                {% if request.user.user_id == 4 %}
+                    <a href="{% url 'admin_page' %}" class="div3">관리자</a>
+                {% else %}
+                    <a href="{% url 'my_page' %}" class="div3">내 정보</a>
+                {% endif %}
+            {% else %}
+                <a href="{% url 'sign_up' %}" class="div3">회원가입</a>
+            {% endif %}
+          </div>
+          <div class="sign-in">
+            <form method="POST" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <button type="submit" class="div2">로그아웃</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="nav">
+        <div class="nav-2">
+          <div class="nav-3">
+            <a href="{% url 'main' %}">
+              <img
+                class="icon-market-1"
+                src="../../static/images/icon_market.svg"
+              />
+            </a>
+            <div class="menu-bar">
+              <div class="sale">
+                <img
+                  class="icon-sale-1"
+                  src="../../static/images/icon-sale.png"
+                />
+                <a href="{% url 'product_sale' %}" class="div3">판매하기</a>
+              </div>
+              <div class="my-shop">
+                <img
+                  class="icon-myshop-1"
+                  src="../../static/images/icon-myshop.png"
+                />
+                <a href="{% url 'my_page' %}" class="div3">내상점</a>
+              </div>
+              <div class="chat">
+                <img
+                  class="icon-chat-1"
+                  src="../../static/images/icon-chat.png"
+                />
+                <div class="div3">채팅</div>
+              </div>
+            </div>
+            <form class="search-bar" method="GET" action="{% url 'search' %}">
+              {% csrf_token %}
+              <input
+                class="div4"
+                type="text"
+                placeholder="상품명 입력"
+                name="q"
+                id="searchInput"
+                aria-label="Search"
+                onkeyup="showSuggestions(this.value)"
+              />
+              <button type="submit" class="search-frame">
+                <img
+                  class="search"
+                  src="{% static 'images/search.svg' %}"
+                  id="searchButton"
+                  alt="검색"
+                />
+              </button>
+              <div id="suggestions" class="suggestions-box"></div> <!-- 자동완성 결과 표시 영역 -->
+            </form>
+          </div>
+          <div class="nav-4"></div>
+        </div>
+      </div>
+      <div class="frame-16"></div>
+      <div class="product-wrap">
+        <div class="product-info">
+          <div class="div6">상품정보</div>
+        </div>
+        <div class="line-1"></div>
+
+        <!-- 수정된 부분: form 태그가 여기로 이동 -->
+        <form
+          method="POST"
+          action="{% url 'product_sale' %}"
+          enctype="multipart/form-data"
+        >
+          {% csrf_token %}
+          <div class="product-group">
+            <div class="product-label">
+              <div class="div7">상품이미지</div>
+            </div>
+            <div class="product-list">
+              <div class="info-image">
+                <input
+                  type="file"
+                  id="imageUpload"
+                  accept="image/*"
+                  style="display: none"
+                  name="image"
+                />
+                <img
+                  class="user"
+                  src="../../static/images/user.png"
+                  id="userImage"
+                />
+              </div>
+            </div>
+            <!-- 카테고리 자동선택 부분 -->
+            <div class="frame-2" id="categoryProbabilities">
+              <div class="category-item">
+                <div class="category-name">전자기기</div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 0%;"></div>
+                </div>
+                <div class="percentage-text">0.00%</div>
+              </div>
+              <div class="category-item">
+                <div class="category-name">의류</div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 0%;"></div>
+                </div>
+                <div class="percentage-text">0.00%</div>
+              </div>
+              <div class="category-item">
+                <div class="category-name">가구</div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 0%;"></div>
+                </div>
+                <div class="percentage-text">0.00%</div>
+              </div>
+              <div class="category-item">
+                <div class="category-name">공구/도구</div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 0%;"></div>
+                </div>
+                <div class="percentage-text">0.00%</div>
+              </div>
+            </div>
+              
+          </div>
+
+          <div class="product-group-2">
+            <div class="product-label-2">
+              <div class="div8">상품명</div>
+            </div>
+            <div class="product-input">
+              <input
+                type="text"
+                class="div9"
+                placeholder="상품명을 입력해 주세요"
+                name="name"
+              />
+            </div>
+          </div>
+
+          <div class="categori-group">
+            <div class="categori2">
+              <div class="div10">카테고리</div>
+            </div>
+            <div class="categori-section">
+              <div class="div11" id="selectedCategory"></div>
+            </div>
+          
+            
+            <div class="categori-dropdown">
+              <select id="categoryDropdown" name="category">
+                <option value="" disabled selected>카테고리</option>
+                <option value="1">전자기기</option>
+                <option value="2">의류</option>
+                <option value="3">가구</option>
+                <option value="4">공구/도구</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="product-group-3">
+            <div class="product-label-3">
+              <div class="div12">설명</div>
+            </div>
+            <div class="product-input-2">
+              <textarea
+                class="div9"
+                placeholder="상품에 대한 정보를 기재해 주세요"
+                name="description"
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="price-frame">
+            <div class="div13">가격</div>
+          </div>
+          <div class="line-12"></div>
+          <div class="price-frame2">
+            <div class="price-frame-2">
+              <div class="div14">가격</div>
+            </div>
+            <div class="price-frame-3">
+              <div class="price-input">
+                <input
+                  type="text"
+                  class="div9"
+                  id="priceInput"
+                  placeholder="가격을 입력해 주세요"
+                  name="price"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="footer">
+            <button type="submit" class="product-register">
+              <div class="div15">등록하기</div>
+            </button>
+          </div>
+        </form>
+        
+        <!-- 수정된 부분 끝 -->
+      </div>
+
+      <a href="{% url 'map_page' %}">
+        <div class="map">
+          <img class="map2" src="../../static/images/icon_map.svg" />
+          <div class="div16">
+            우리동네
+            <br />
+            매물 보기
+          </div>
+        </div>
+      </a>
+
+      
+    </div>
+
+    <script>
+      document
+        .getElementById("userImage")
+        .addEventListener("click", function () {
+          document.getElementById("imageUpload").click();
+        });
+
+      document
+        .getElementById("imageUpload")
+        .addEventListener("change", function (event) {
+          const file = event.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              document.getElementById("userImage").src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+          }
+        });
+
+      document
+        .getElementById("priceInput")
+        .addEventListener("input", function (event) {
+          let input = event.target.value;
+          input = input.replace(/,/g, "");
+          if (!isNaN(input) && input !== "") {
+            event.target.value = Number(input).toLocaleString();
+          } else {
+            event.target.value = "";
+          }
+        });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const categoryDropdown = document.getElementById("categoryDropdown");
+        const selectedCategoryDisplay =
+          document.getElementById("selectedCategory");
+
+        // 카테고리 선택 시 이름 표시
+        categoryDropdown.addEventListener("change", function () {
+          const selectedCategoryText =
+            categoryDropdown.options[categoryDropdown.selectedIndex].text;
+          selectedCategoryDisplay.textContent = selectedCategoryText; // 선택된 카테고리 이름 표시
+        });
+      });
+    </script>
+
+    {% if messages %}
+    <div class="message">
+      {% for message in messages %}
+      <div class="{% if message.tags %}{{ message.tags }}{% endif %}">
+        {{ message }}
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+    <div class="dropdown">
+      <div class="dropdown-title">
+          <span class="hamburger-menu"></span>
+      </div>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="{% url 'category_view' '1' %}">전자기기</a></li>
+        <li><a class="dropdown-item" href="{% url 'category_view' '2' %}">의류</a></li>
+        <li><a class="dropdown-item" href="{% url 'category_view' '3' %}">가구</a></li>
+        <li><a class="dropdown-item" href="{% url 'category_view' '4' %}">공구/도구</a></li>
+      </ul>
+    </div>
+    <div class = "cate">카테고리</div>
+
+    <script src="{% static 'javascript/predict_category.js' %}"></script>
+    <script src="../../static/javascript/file_upload.js"></script>
+    <script src="{% static 'javascript/search.js' %}"></script>
+  </body>
+</html>

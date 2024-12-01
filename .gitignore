@@ -1,0 +1,5 @@
+# 환경 변수 파일
+.env
+
+# 모델
+xception_fine_tuned.h5

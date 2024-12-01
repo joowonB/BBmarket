@@ -1,0 +1,251 @@
+<html lang="ko">
+  <head>
+    {% load static %} {% load humanize %}
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../../static/images/favicon.png" />
+    <link rel="stylesheet" href="../../static/css/product_info.css" />
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <!-- 카카오 지도 API 불러오기 -->
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=20ae46abbc2fdc23e5805ed7b3947ed5&libraries=clusterer,services"
+    ></script>
+    <!-- jQuery 불러오기 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'javascript/map.js' %}"></script>
+    <!-- map.js 파일 불러오기 -->
+    <title>별별마켓</title>
+  </head>
+  <body>
+    <div class="product-info">
+      <div class="header">
+        <div class="header-2">
+          <!--앱 다운로드 아이콘-->
+          <div class="app-down">
+            <img
+              class="icon-app-download-2"
+              src="../../static/images/icon_app_download.png"
+            />
+            <div class="div">앱다운로드</div>
+          </div>
+          <!--로그인,회원가입-->
+          <div class="sign-up">
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'my_page' %}" class="div3">내 정보</a>
+            <!-- 로그인 되어 있으면 '내 정보' 표시 -->
+            {% else %}
+            <a href="{% url 'sign_up' %}" class="div3">회원가입</a>
+            <!-- 디폴트로 '회원가입' 표시 -->
+            {% endif %}
+          </div>
+          <div class="sign-in">
+            {% if request.user.is_authenticated %}
+            <form method="POST" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <button type="submit" class="div2">로그아웃</button>
+            </form>
+            {% else %}
+            <a href="{% url 'sign_in' %}" class="div2">로그인</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <!--판매,내상점,채팅-->
+      <div class="nav">
+        <div class="nav-2">
+          <div class="nav-3">
+            <a href="{% url 'main' %}">
+              <img
+                class="icon-market-1"
+                src="../../static/images/icon_market.svg"
+              />
+            </a>
+            <div class="menu-bar">
+              <div class="sale">
+                <img
+                  class="icon-sale-1"
+                  src="../../static/images/icon-sale.png"
+                />
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'product_sale' %}" class="div3">판매하기</a>
+                {% else %}
+                <a href="{% url 'sign_in' %}" class="div3">판매하기</a>
+                {% endif %}
+              </div>
+              <div class="my-shop">
+                <img
+                  class="icon-myshop-1"
+                  src="../../static/images/icon-myshop.png"
+                />
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'my_page' %}" class="div3">내상점</a>
+                {% else %}
+                <a href="{% url 'sign_in' %}" class="div3">내상점</a>
+                {% endif %}
+              </div>
+              <div class="chat">
+                <img
+                  class="icon-chat-1"
+                  src="../../static/images/icon-chat.png"
+                />
+                <div class="div3">채팅</div>
+              </div>
+            </div>
+            <!--상품 검색-->
+            <div class="search-bar">
+              <input
+                class="div4"
+                type="text"
+                placeholder="상품명 입력"
+                id="searchInput"
+              />
+              <div class="search-frame">
+                <img
+                  class="search"
+                  src="../../static/images/search.svg"
+                  id="searchButton"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="nav-4"></div>
+        </div>
+      </div>
+      <div class="frame-16"></div>
+      <div class="product-wrap">
+        <div class="product-categori">
+          <div class="div6"></div>
+        </div>
+        <div class="line-1"></div>
+        <div class="product-images">
+          <!--상품 이미지-->
+          <div id="carouselExampleIndicators" class="carousel slide">
+            <div class="carousel-indicators"></div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="image-card">
+                  <img src="{{ product.product_image_url }}" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <div class="place-text">
+            <div class="div7">직거래 희망장소</div>
+          </div>
+          <!--지도 넣기-->
+          <div class="map4">
+            <div id="map" style="width: 100%; height: 100%"></div>
+            <div id="marker-info" style="margin-top: 20px; font-size: 14px">
+              클릭한 마커의 주소와 좌표가 여기에 표시됩니다.
+            </div>
+          </div>
+          <!--지도 넣기 끝-->
+        </div>
+        <div class="frame-17">
+          <div class="product-name">
+            <div class="div8">{{ product.product_name }}</div>
+            <!-- 상품 이름 가져오기 -->
+          </div>
+          <div class="product-price">
+            <div class="_500-000">{{ product.product_price|intcomma }}원</div>
+            <!-- 상품 가격 가져오기 -->
+          </div>
+
+          <div class="product-category">
+            <a
+              href="{% url 'category_detail' product.product_category.id %}"
+              class="category-button"
+            >
+              <div class="category-name">
+                카테고리: {{ product.product_category.category_name }}
+              </div>
+              <!-- 카테고리 이름 출력 -->
+            </a>
+
+            <!-- 수정 버튼 추가 -->
+            {% if request.user.is_authenticated and request.user == product.product_user %}
+            <a href="{% url 'edit_product' product.id %}" class="edit-button">
+              상품 수정
+            </a>
+            {% endif %}
+          </div>
+
+          <div class="chat-frame">
+            <button class="rectangle-4">
+              <div class="div9">구매 문의 연락</div>
+            </button>
+          </div>
+          <div class="user-frame">
+            <div class="user-frame-2">
+              <img
+                class="user"
+                src="{{ product.product_user.db_myshop.shop_image.url }}"
+                alt="상점 이미지"
+              />
+            </div>
+            <div class="user-name">
+              <div class="div10">
+                {{ product.product_user.db_myshop.shop_name }}
+              </div>
+              <!-- 상점 이름 출력 -->
+            </div>
+          </div>
+        </div>
+
+        <div class="line-12"></div>
+        <div class="frame-18">
+          <div class="product-description">
+            <p>{{ product.product_description }}</p>
+            <!-- 상품 설명 -->
+          </div>
+        </div>
+        <div class="chat-frame2">
+          <button class="rectangle-4">
+            <div class="div9">구매 문의 연락</div>
+          </button>
+        </div>
+      </div>
+      <!--지도 기능-->
+      <a href="{% url 'map_page' %}">
+        <div class="map">
+          <img class="map2" src="../../static/images/icon_map.svg" />
+          <div class="div16">
+            우리동네
+            <br />
+            매물 보기
+          </div>
+        </div>
+      </a>
+      <!--지도 기능 끝-->
+
+      <!--카테고리 목록-->
+      <div class="dropdown">
+        <div class="dropdown-title">
+          <span class="hamburger-menu"></span>
+        </div>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="{% url 'category_view' '1' %}">전자기기</a></li>
+          <li><a class="dropdown-item" href="{% url 'category_view' '2' %}">의류</a></li>
+          <li><a class="dropdown-item" href="{% url 'category_view' '3' %}">가구</a></li>
+          <li><a class="dropdown-item" href="{% url 'category_view' '4' %}">공구/도구</a></li>
+        </ul>
+      </div>
+      <div class="cate">카테고리</div>
+    </div>
+  </body>
+</html>

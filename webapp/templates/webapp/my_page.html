@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    {% load humanize %}{% load custom_filters %}{% load humanize %}{% load static %} {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../../static/images/favicon.png" />
+    <link rel="stylesheet" href="../../static/css/my_page.css" />
+    <script src="{% static 'javascript/search.js' %}"></script>
+    <title>별별마켓</title>
+  </head>
+  <body>
+    <div class="my-page">
+      <div class="header">
+        <div class="header-2">
+          <!--앱 다운로드 아이콘-->
+          <div class="app-down">
+            <img
+              class="icon-app-download-2"
+              src="../../static/images/icon_app_download.png"
+            />
+            <div class="div">앱다운로드</div>
+          </div>
+          <!--로그아웃-->
+          <div class="sign-up">
+            {% if request.user.is_authenticated %}
+                {% if request.user.user_id == 4 %}
+                    <a href="{% url 'admin_page' %}" class="div3">관리자</a>
+                {% else %}
+                    <a href="{% url 'my_page' %}" class="div3">내 정보</a>
+                {% endif %}
+            {% else %}
+                <a href="{% url 'sign_up' %}" class="div3">회원가입</a>
+            {% endif %}
+          </div>
+          <div class="sign-in">
+            <form method="POST" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <button type="submit" class="div2">로그아웃</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!--판매, 내상점, 채팅-->
+      <div class="nav">
+        <div class="nav-2">
+          <div class="nav-3">
+            <a href="{% url 'main' %}">
+              <img
+                class="icon-market-1"
+                src="../../static/images/icon_market.svg"
+              />
+            </a>
+            <div class="menu-bar">
+              <div class="sale">
+                <img
+                  class="icon-sale-1"
+                  src="../../static/images/icon-sale.png"
+                />
+                <a href="{% url 'product_sale' %}" class="div3">판매하기</a>
+              </div>
+              <div class="my-shop">
+                <img
+                  class="icon-myshop-1"
+                  src="../../static/images/icon-myshop.png"
+                />
+                <a href="{% url 'my_page' %}" class="div3">내상점</a>
+              </div>
+              <div class="chat">
+                <img
+                  class="icon-chat-1"
+                  src="../../static/images/icon-chat.png"
+                />
+                <div class="div3">채팅</div>
+              </div>
+            </div>
+            <!--상품 검색-->
+            <form class="search-bar" method="GET" action="{% url 'search' %}">
+              {% csrf_token %}
+              <input
+                class="div4"
+                type="text"
+                placeholder="상품명 입력"
+                name="q"
+                id="searchInput"
+                aria-label="Search"
+                onkeyup="showSuggestions(this.value)"
+              />
+              <button type="submit" class="search-frame">
+                <img
+                  class="search"
+                  src="{% static 'images/search.svg' %}"
+                  id="searchButton"
+                  alt="검색"
+                />
+              </button>
+              <div id="suggestions" class="suggestions-box"></div> <!-- 자동완성 결과 표시 영역 -->
+            </form>
+          </div>
+          <div class="nav-4">
+            
+          </div>
+        </div>
+      </div>
+      {% load custom_filters %}
+
+      <!-- 내 상품 목록 -->
+      <div class="article">
+        <div class="list">
+          <!-- 페이지당 표시할 개수 선택 -->
+          <form method="get" id="itemsPerPageForm">
+            <label for="itemsPerPageSelect">페이지당 표시할 상품 개수:</label>
+            <select name="items_per_page" id="itemsPerPageSelect" onchange="document.getElementById('itemsPerPageForm').submit();">
+              <option value="10" {% if items_per_page == 10 %}selected{% endif %}>10개</option>
+              <option value="15" {% if items_per_page == 15 %}selected{% endif %}>15개</option>
+              <option value="20" {% if items_per_page == 20 %}selected{% endif %}>20개</option>
+            </select>
+            <noscript><button type="submit">적용</button></noscript>
+          </form>
+          
+          <!-- 상품 목록 출력 -->
+          <div class="item-con-1">
+            {% for product in page_obj %}
+            <div class="item-card">
+              <a href="{% url 'product_info' product.pk %}" class="product-link">
+                상품 페이지 보러가기
+              </a>
+              <div class="image-card">
+                <img src="{{ product.product_image_url }}" alt="{{ product.product_name }}" />
+              </div>
+              <div class="item-info">
+                <div class="item-name">
+                  <div class="div6">{{ product.product_name }}</div>
+                </div>
+                <div class="item-price">
+                  <span>{{ product.product_price|intcomma }} 원</span>
+                </div>
+                <div class="item-days">
+                  {{ product.product_created_at|time_since }}
+                </div>
+              </div>
+            </div>
+            {% empty %}
+            <div>등록된 상품이 없습니다.</div>
+            {% endfor %}
+          </div>
+          
+          <!-- 페이지네이션 -->
+          <div class="pagination">
+            <span class="step-links">
+              {% if page_obj.has_previous %}
+                <a href="?page=1&items_per_page={{ items_per_page }}">&laquo; 처음</a>
+                <a href="?page={{ page_obj.previous_page_number }}&items_per_page={{ items_per_page }}">이전</a>
+              {% endif %}
+              
+              {% for num in page_obj.paginator.page_range %}
+                {% if num == page_obj.number %}
+                  <strong>{{ num }}</strong>
+                {% else %}
+                  <a href="?page={{ num }}&items_per_page={{ items_per_page }}">{{ num }}</a>
+                {% endif %}
+              {% endfor %}
+      
+              {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}&items_per_page={{ items_per_page }}">다음</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}&items_per_page={{ items_per_page }}">마지막 &raquo;</a>
+              {% endif %}
+            </span>
+          </div>
+        </div>
+      <div class="article-1">
+                <div class="article-2">
+                  <div class="div7">내 상품</div>
+                </div>
+              </div>
+      </div>
+      
+      
+
+      
+
+      <!--판매물품 판매중/판매완료 버튼-->
+      <div class="sale-info">
+        <div class="frame-13">
+          <button class="div8">판매중</button>
+        </div>
+        <div class="frame-14">
+          <button class="div9">판매완료</button>
+        </div>
+      </div>
+
+      <!--지도 기능-->
+      <a href="{% url 'map_page' %}">
+        <div class="map">
+          <img class="map2" src="../../static/images/icon_map.svg" />
+          <div class="div16">
+            우리동네
+            <br />
+            매물 보기
+          </div>
+        </div>
+      </a>
+      <!--지도 기능 끝-->
+
+      <!-- 상점 정보 수정 섹션 -->
+      <div class="info-frame">
+        <div class="info-image">
+          <!-- 업로드 파일 선택 -->
+          <input
+            type="file"
+            id="imageUpload"
+            accept="image/*"
+            style="display: none"
+          />
+          <img class="user" src="{{ myshop.shop_image.url }}" id="userImage" />
+        </div>
+        <!-- 상점명 텍스트 박스 -->
+        <div class="shop-name">
+          <input
+            type="text"
+            class="name-filed"
+            id="shopName"
+            value="{{ myshop.shop_name }}"
+          />
+          <!-- 상점명 수정 버튼 -->
+        </div>
+        <button class="edit-button" id="editShopNameButton">
+          상점명 및 소개글 수정
+        </button>
+        <!-- 소개글 텍스트 영역 -->
+        <div class="shop-info">
+          <input
+            type="text"
+            class="info-filed"
+            id="shopInfo"
+            value="{{ myshop.shop_info }}"
+          />
+        </div>
+
+        <!-- 상점 이미지 업로드 버튼 -->
+      </div>
+
+      
+    </div>
+
+    <script>
+      document
+        .getElementById("userImage")
+        .addEventListener("click", function () {
+          document.getElementById("imageUpload").click();
+        });
+
+      document
+        .getElementById("imageUpload")
+        .addEventListener("change", function (event) {
+          const file = event.target.files[0];
+
+          if (file) {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+              document.getElementById("userImage").src = e.target.result;
+            };
+
+            reader.readAsDataURL(file);
+          }
+        });
+
+      // 상점명 수정
+      document
+        .getElementById("editShopNameButton")
+        .addEventListener("click", function () {
+          const shopName = document.getElementById("shopName").value;
+          const shopInfo = document.getElementById("shopInfo").value;
+
+          const formData = new FormData();
+          formData.append("shop_name", shopName);
+          formData.append("shop_info", shopInfo);
+          const imageFile = document.getElementById("imageUpload").files[0];
+          if (imageFile) {
+            formData.append("shop_image", imageFile);
+          }
+
+          // 서버로 전송
+          fetch("{% url 'update_my_shop' %}", {
+            method: "POST",
+            body: formData,
+            headers: {
+              "X-CSRFToken": "{{ csrf_token }}", // CSRF 토큰 추가
+            },
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.success) {
+                alert("상점 정보가 성공적으로 업데이트되었습니다.");
+              } else {
+                alert("업데이트에 실패했습니다.");
+              }
+            })
+            .catch((error) => console.error("Error:", error));
+        });
+
+      // 소개글 수정
+      document
+        .getElementById("editShopInfoButton")
+        .addEventListener("click", function () {
+          const shopInfo = document.getElementById("shopInfo").value;
+
+          const formData = new FormData();
+          formData.append("shop_info", shopInfo);
+
+          // 서버로 전송
+          fetch("{% url 'update_my_shop' %}", {
+            method: "POST",
+            body: formData,
+            headers: {
+              "X-CSRFToken": "{{ csrf_token }}", // CSRF 토큰 추가
+            },
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.success) {
+                alert("소개글이 성공적으로 업데이트되었습니다.");
+              } else {
+                alert("업데이트에 실패했습니다.");
+              }
+            })
+            .catch((error) => console.error("Error:", error));
+        });
+    </script>
+    <div class="dropdown">
+      <div class="dropdown-title">
+          <span class="hamburger-menu"></span>
+      </div>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="{% url 'category_view' '1' %}">전자기기</a></li>
+        <li><a class="dropdown-item" href="{% url 'category_view' '2' %}">의류</a></li>
+        <li><a class="dropdown-item" href="{% url 'category_view' '3' %}">가구</a></li>
+        <li><a class="dropdown-item" href="{% url 'category_view' '4' %}">공구/도구</a></li>
+      </ul>
+    </div>
+    <div class = "cate">카테고리</div>
+  </body>
+</html>

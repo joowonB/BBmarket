@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  {% load static %}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="{% static 'images/favicon.png' %}" />
+  <link rel="stylesheet" href="{% static 'css/map_page.css' %}" />
+  <title>별별마켓</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=20ae46abbc2fdc23e5805ed7b3947ed5&libraries=clusterer,services"></script>
+  <script>
+    var jsonDataUrl = "{% static 'data/po.json' %}"; // JSON 파일 경로를 JavaScript 변수에 저장
+  </script>
+  <script src="{% static 'javascript/search.js' %}"></script>
+</head>
+<body>
+  <div class="map-page">
+    <!-- 헤더 -->
+    <div class="header">
+      <div class="header-2">
+        <div class="app-down">
+          <img class="icon-app-download-2" src="{% static 'images/icon_app_download.png' %}" alt="앱 다운로드 아이콘" />
+          <div class="div">앱다운로드</div>
+        </div>
+        <div class="sign-up">
+          {% if request.user.is_authenticated %}
+            {% if request.user.user_id == 4 %}
+              <a href="{% url 'admin_page' %}" class="div3">관리자</a>
+            {% else %}
+              <a href="{% url 'my_page' %}" class="div3">내 정보</a>
+            {% endif %}
+          {% else %}
+            <a href="{% url 'sign_up' %}" class="div3">회원가입</a>
+          {% endif %}
+        </div>
+        <div class="sign-in">
+          {% if request.user.is_authenticated %}
+            <form method="POST" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <button type="submit" class="div2">로그아웃</button>
+            </form>
+          {% else %}
+            <a href="{% url 'sign_in' %}" class="div2">로그인</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <!-- 내비게이션 -->
+    <div class="nav">
+      <div class="nav-2">
+        <div class="nav-3">
+          <a href="{% url 'main' %}">
+            <img class="icon-market-1" src="{% static 'images/icon_market.svg' %}" />
+          </a>
+          <div class="menu-bar">
+            <div class="sale">
+              <img class="icon-sale-1" src="{% static 'images/icon-sale.png' %}" />
+              {% if request.user.is_authenticated %}
+                <a href="{% url 'product_sale' %}" class="div3">판매하기</a>
+              {% else %}
+                <a href="{% url 'sign_in' %}" class="div3">판매하기</a>
+              {% endif %}
+            </div>
+            <div class="my-shop">
+              <img class="icon-myshop-1" src="{% static 'images/icon-myshop.png' %}" />
+              {% if request.user.is_authenticated %}
+                <a href="{% url 'my_page' %}" class="div3">내상점</a>
+              {% else %}
+                <a href="{% url 'sign_in' %}" class="div3">내상점</a>
+              {% endif %}
+            </div>
+            <div class="chat">
+              <img class="icon-chat-1" src="{% static 'images/icon-chat.png' %}" />
+              <a href="{% url 'sign_in' %}" class="div3">채팅</a>
+            </div>
+          </div>
+
+          <!-- 검색 -->
+          
+            <form class="search-bar" method="GET" action="{% url 'search' %}">
+              {% csrf_token %}
+              <input
+                class="div4"
+                type="text"
+                placeholder="상품명 입력"
+                name="q"
+                id="searchInput"
+                aria-label="Search"
+                onkeyup="showSuggestions(this.value)"
+              />
+              <button type="submit" class="search-frame">
+                <img
+                  class="search"
+                  src="{% static 'images/search.svg' %}"
+                  id="searchButton"
+                  alt="검색"
+                />
+              </button>
+              <div id="suggestions" class="suggestions-box"></div> <!-- 자동완성 결과 표시 영역 -->
+            </form>
+        </div>
+          <div class="nav-4">
+          
+        </div>
+      </div>
+    </div>
+    <div class="frame-20">
+      <h1 class="map-title2">우리동네 매물 지도</h1>
+    </div>
+    <!-- 지도 공간 -->
+    <div class="frame-19">
+      <div id="map" style="width: 100%; height: 100%"></div>
+      <div id="marker-info" style="margin-top: 20px; font-size: 14px"></div>
+    </div>
+  </div>
+
+  <script>
+    let map;
+    let currentInfoWindow = null;
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const lat = position.coords.latitude;
+        const lng = position.coords.longitude;
+
+        const options = {
+          center: new kakao.maps.LatLng(lat, lng),
+          level: 5,
+        };
+
+        map = new kakao.maps.Map(document.getElementById("map"), options);
+
+        const userMarker = new kakao.maps.Marker({
+          position: new kakao.maps.LatLng(lat, lng),
+          map: map,
+          title: "내 위치",
+        });
+
+        const userInfoWindow = new kakao.maps.InfoWindow({
+          content: '<div style="padding:5px;">현재 위치</div>',
+          removable: true,
+        });
+
+        kakao.maps.event.addListener(userMarker, "click", function () {
+          userInfoWindow.open(map, userMarker);
+        });
+
+        initializeMap();
+      },
+      (error) => {
+        console.error("위치 정보를 가져올 수 없습니다.", error);
+        const options = {
+          center: new kakao.maps.LatLng(37.5665, 126.978),
+          level: 5,
+        };
+
+        map = new kakao.maps.Map(document.getElementById("map"), options);
+        initializeMap();
+      }
+    );
+
+    function initializeMap() {
+      const clusterer = new kakao.maps.MarkerClusterer({
+        map: map,
+        averageCenter: true,
+        minLevel: 10,
+      });
+
+      $.getJSON(jsonDataUrl, function (data) {
+        const groupedData = groupByLocation(data);
+
+        const markers = Object.keys(groupedData).map((locationKey) => {
+          const location = groupedData[locationKey].location;
+          const products = groupedData[locationKey].products;
+
+          const marker = new kakao.maps.Marker({
+            position: new kakao.maps.LatLng(location.lat, location.lng),
+          });
+
+          kakao.maps.event.addListener(marker, "click", function () {
+            showProductList(products, marker);
+          });
+
+          return marker;
+        });
+
+        clusterer.addMarkers(markers);
+      });
+    }
+
+    function groupByLocation(data) {
+      const groupedData = {};
+      
+      data.forEach((item) => {
+        const locationKey = `${item.latitude}-${item.longitude}`;
+        
+        if (!groupedData[locationKey]) {
+          groupedData[locationKey] = { location: { lat: item.latitude, lng: item.longitude }, products: [] };
+        }
+        groupedData[locationKey].products.push(item);
+      });
+
+      return groupedData;
+    }
+
+    function truncateText(text, maxLength = 10) {
+      return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
+    }
+
+    function showProductList(products, marker) {
+      const firstProduct = products[0];
+      let currentIndex = 0;
+      const itemsPerPage = 5;
+      const totalPages = Math.ceil(products.length / itemsPerPage);
+    
+      // 최대 5개씩 표시하고, 페이지네이션 및 좌우 화살표로 이동 가능하도록 설정
+      function renderProductList() {
+        let content = `<div style="padding:10px; font-size:14px; text-align:center; max-width: 200px;">`;
+        content += `<strong>판매자: ${firstProduct.user_name}</strong><br><br>`;
+        
+        // 상품 리스트 추가 (현재 페이지의 아이템들 표시)
+        content += `<div style="max-height: 120px; overflow-y: auto;">`;
+        products.slice(currentIndex, currentIndex + itemsPerPage).forEach((product) => {
+          const truncatedName = truncateText(product.product_name, 10);
+          content += `<a href="/product/${product.product_id}" class="product-link" target="_blank">${truncatedName}</a><br>`;
+        });
+        content += `</div>`;
+    
+        // 페이지네이션 및 화살표 추가
+        const currentPage = Math.floor(currentIndex / itemsPerPage) + 1;
+        content += `<div style="display: flex; justify-content: center; align-items: center; margin-top: 8px;">`;
+        
+        // 좌측 화살표
+        if (currentPage > 1) {
+          content += `<span style="cursor: pointer; margin-right: 10px;" onclick="changeIndex(-1)">&#9664;</span>`;
+        } else {
+          content += `<span style="margin-right: 10px;">&nbsp;&nbsp;</span>`; // 빈 자리
+        }
+    
+        // 페이지 번호 표시
+        content += `<span>페이지 ${currentPage} / ${totalPages}</span>`;
+    
+        // 우측 화살표
+        if (currentPage < totalPages) {
+          content += `<span style="cursor: pointer; margin-left: 10px;" onclick="changeIndex(1)">&#9654;</span>`;
+        } else {
+          content += `<span style="margin-left: 10px;">&nbsp;&nbsp;</span>`; // 빈 자리
+        }
+    
+        content += `</div></div>`;
+    
+        // 인포윈도우에 표시
+        const listInfoWindow = new kakao.maps.InfoWindow({
+          content: content,
+          removable: true,
+        });
+    
+        if (currentInfoWindow) currentInfoWindow.close();
+        listInfoWindow.open(map, marker);
+        currentInfoWindow = listInfoWindow;
+      }
+    
+      // 인덱스를 변경하고 다시 렌더링하는 함수
+      window.changeIndex = function (step) {
+        currentIndex += step * itemsPerPage;
+        renderProductList();
+      };
+    
+      // 초기 렌더링
+      renderProductList();
+    }
+  </script>
+</body>
+</html>

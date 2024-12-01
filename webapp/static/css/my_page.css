@@ -1,0 +1,1058 @@
+@font-face {
+  font-family: "MinSans-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: "MinSans";
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.my-page,
+.my-page * {
+  box-sizing: border-box;
+}
+.my-page {
+  background: #ffffff;
+  height: 3000px;
+  position: relative;
+  overflow: hidden;
+}
+.header {
+  background: #ffffff;
+  width: 1920px;
+  height: 40px;
+  position: absolute;
+  left: calc(50% - 960px);
+  top: 0px;
+  overflow: hidden;
+}
+.header-2 {
+  background: #ffffff;
+  width: 1024px;
+  height: 40px;
+  position: absolute;
+  left: calc(50% - 512px);
+  top: calc(50% - 20px);
+  overflow: hidden;
+}
+.app-down {
+  background: #ffffff;
+  width: 110px;
+  height: 40px;
+  position: absolute;
+  left: 8px;
+  top: calc(50% - 20px);
+  overflow: hidden;
+}
+.icon-app-download-2 {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 0px;
+  top: calc(50% - 8px);
+  object-fit: cover;
+}
+.div {
+  color: #666666;
+  text-align: left;
+  font-family: "MinSans-Medium", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  position: absolute;
+  left: calc(50% - 35px);
+  top: calc(50% - 8px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* 기본 버튼 스타일 제거 */
+button {
+  background: none; /* 기본 배경 제거 */
+  border: none; /* 기본 테두리 제거 */
+  padding: 0; /* 패딩 제거 */
+  cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+}
+
+/* .div2 클래스 스타일 */
+.div2 {
+  color: #666666;
+  text-align: left;
+  font-family: "MinSans-Medium", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  position: absolute;
+  left: 0px;
+  top: calc(50% - 8px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* 버튼에 대한 추가 스타일 */
+button.div2 {
+  border-radius: 4px; /* 모서리 둥글게 설정 */
+  background-color: transparent; /* 배경색 설정 */
+}
+.sign-in {
+  background: #ffffff;
+  width: 57px;
+  height: 40px;
+  position: absolute;
+  left: 914px;
+  top: calc(50% - 20px);
+  overflow: hidden;
+}
+.logout {
+  background: #ffffff;
+  width: 57px;
+  height: 40px;
+  position: absolute;
+  left: 960px;
+  top: calc(50% - 20px);
+  overflow: hidden;
+}
+.nav {
+  background: #ffffff;
+  width: 1920px;
+  height: 162px;
+  position: absolute;
+  left: calc(50% - 960px);
+  top: 40px;
+}
+.nav-2 {
+  background: #c8eed2;
+  width: 1024px;
+  height: 145px;
+  position: absolute;
+  left: calc(50% - 512px);
+  top: calc(50% - 73px);
+}
+.nav-3 {
+  background: #ffffff;
+  width: 1024px;
+  height: 96px;
+  position: absolute;
+  left: calc(50% - 512px);
+  top: 0px;
+}
+.icon-market-1 {
+  width: 136px;
+  height: 40px;
+  position: absolute;
+  left: 0px;
+  top: calc(50% - 20px);
+  overflow: visible;
+}
+.menu-bar {
+  background: #ffffff;
+  width: 328px;
+  height: 26px;
+  position: absolute;
+  left: 696px;
+  top: calc(50% - 13px);
+  overflow: hidden;
+}
+.sale {
+  background: #ffffff;
+  width: 88px;
+  height: 26px;
+  position: absolute;
+  left: 69px;
+  top: calc(50% - 13px);
+  overflow: hidden;
+}
+.icon-sale-1 {
+  width: 23.4px;
+  height: 26px;
+  position: absolute;
+  left: 14px;
+  top: calc(50% - 13px);
+  object-fit: cover;
+}
+.div3 {
+  color: #212121;
+  text-align: left;
+  font-family: "MinSans-Medium", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  position: absolute;
+  right: 0px;
+  top: calc(50% - 8px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.my-shop {
+  background: #ffffff;
+  width: 79px;
+  height: 26px;
+  position: absolute;
+  left: 169px;
+  top: calc(50% - 13px);
+  overflow: hidden;
+}
+.icon-myshop-1 {
+  width: 23.2px;
+  height: 24px;
+  position: absolute;
+  left: 16px;
+  top: calc(50% - 12px);
+  object-fit: cover;
+}
+.chat {
+  background: #ffffff;
+  width: 67px;
+  height: 26px;
+  position: absolute;
+  left: 261px;
+  top: calc(50% - 13px);
+  overflow: hidden;
+}
+.icon-chat-1 {
+  width: 23.2px;
+  height: 24px;
+  position: absolute;
+  left: calc(50% - 16.5px);
+  top: calc(50% - 12px);
+  object-fit: cover;
+}
+.search-bar {
+  background: #ffffff;
+  border-style: solid;
+  border-color: #3b4890;
+  border-width: 2px;
+  padding: 12px 14px 12px 14px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 460px;
+  height: 40px;
+  position: absolute;
+  left: 236px;
+  top: calc(50% - 20px);
+}
+.div4 {
+  color: #666666;
+  text-align: left;
+  font-family: "MinSans-Medium", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  position: relative;
+  width: 390px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border: none;
+  outline: none;
+}
+.search-frame {
+  flex-shrink: 0;
+  width: 35px;
+  height: 21px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.search {
+  height: auto;
+  position: absolute;
+  left: 10px;
+  top: 1.5px;
+  overflow: visible;
+}
+.nav-4 {
+  background: #ffffff;
+  width: 1024px;
+  height: 49px;
+  position: absolute;
+  left: calc(50% - 512px);
+  top: 96px;
+  overflow: hidden;
+}
+.categori {
+  background: #ffffff;
+  width: 98px;
+  height: 35px;
+  position: absolute;
+  left: 6px;
+  top: 7px;
+  overflow: hidden;
+}
+.categori-1 {
+  width: 20px;
+  height: 16px;
+  position: absolute;
+  left: 0px;
+  top: calc(50% - 7.5px);
+  object-fit: cover;
+}
+.div5 {
+  color: #212121;
+  text-align: left;
+  font-family: "MinSans-Medium", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  position: absolute;
+  left: calc(50% - 15px);
+  top: calc(50% - 10.5px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.pagination {
+  text-align: center; /* 중앙 정렬 */
+  margin-top: 20px; /* 위쪽 여백 */
+  display: block; /* 보이도록 설정 */
+  visibility: visible; /* 보이도록 설정 */
+  clear: both; /* float 요소를 무시하여 아래로 내려옴 */
+  position: relative; /* 상대 위치로 설정 */
+  z-index: 10; /* z축 상단으로 설정 */
+  margin-bottom: 20px; /* 아래쪽 여백 추가 */
+}
+
+.pagination a {
+  margin: 0 5px; /* 링크 간격 */
+  text-decoration: none; /* 밑줄 제거 */
+  color: #007bff; /* 링크 색상 */
+}
+
+.pagination .current {
+  font-weight: bold; /* 현재 페이지 강조 */
+}
+
+.article {
+  background: #ffffff;
+  width: 1920px;
+  min-height: 485px; /* 최소 높이를 설정 */
+  position: absolute;
+  left: calc(50% - 960px);
+  top: 490px;
+  overflow: hidden;
+  padding-bottom: 30px; /* 하단 여백 추가 */
+}
+
+.list {
+  background: #ffffff;
+  width: 1024px;
+  position: relative;
+  margin: 0 auto; /* 가운데 정렬 */
+  padding-top: 20px; /* 상단 여백 추가 */
+  overflow: hidden;
+  top: 45px;
+  min-height: calc(100% - 40px); /* 하단 마진을 포함하여 높이 조정 */
+  padding-bottom: 30px; /* 하단 여백 추가 */
+
+}
+.item-con-1 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; /* 줄 바꿈 허용 */
+  gap: 20px; /* 카드 간의 간격 */
+  align-items: flex-start; /* 정렬 방법 조정 */
+  justify-content: flex-start; /* 기본적으로 왼쪽 정렬 */
+  width: 1024px; /* 가로 크기 제한 */
+  position: relative; /* 변경: 절대 위치에서 상대 위치로 수정 */
+  top: 4px;
+}
+
+.item-card {
+  background: rgba(222, 232, 255, 0);
+  border-style: solid;
+  border-color: #f0f0f0;
+  border-width: 1px;
+  padding: 1px;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0; /* 너비 고정 */
+  width: calc(
+    (1024px / 5) - 16px
+  ); /* 5개 표시를 위한 너비 계산, gap을 고려하여 조정 */
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #616161; /* 검은색 테두리 */
+  border-radius: 10px; /* 둥근 모서리, 필요에 따라 조정 */
+}
+
+.product-link {
+  display: inline-block; /* 인라인 블록으로 설정 */
+  padding: 10px 15px; /* 여백 추가 */
+  background-color: rgba(222, 232, 255, 0.8); /* 배경색 */
+  color: #333; /* 글자색 */
+  border-radius: 5px; /* 둥근 모서리 */
+  text-decoration: none; /* 밑줄 제거 */
+  transition: background-color 0.3s, color 0.3s; /* 부드러운 전환 효과 */
+  font-size: 15px; /* 글자 크기 조정 */
+  width: 185px;
+  text-align: center;
+}
+
+/* 호버 시 효과 */
+.product-link:hover {
+  background-color: rgba(200, 220, 255, 1); /* 호버 시 배경색 변경 */
+  color: #000; /* 호버 시 글자색 변경 */
+}
+
+.image-card {
+  background: #ffffff;
+  align-self: stretch;
+  flex-shrink: 0;
+  height: 210px;
+  display: flex; /* Flexbox를 사용하여 중앙 정렬 */
+  justify-content: center; /* 수평 중앙 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
+  overflow: hidden; /* 이미지가 카드 영역을 벗어나지 않도록 설정 */
+}
+
+.unsplash-ad-k-3-vu-70-deq {
+  max-width: 100%; /* 너비를 카드의 최대 너비로 제한 */
+  max-height: 100%; /* 높이를 카드의 최대 높이로 제한 */
+  object-fit: cover; /* 비율을 유지하며 자르기 */
+}
+
+.item-info {
+  background: #ffffff;
+  align-self: stretch;
+  flex-shrink: 0;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+}
+.item-name {
+  background: #ffffff; /* 배경색 */
+  width: 175px; /* 너비 */
+  height: 57px; /* 높이 */
+  position: absolute; /* 절대 위치 */
+  left: calc(50% - 87.5px); /* 중앙 정렬 */
+  top: calc(50% - 48px); /* 중앙 정렬 */
+  overflow: hidden; /* 내용이 넘치는 경우 숨김 */
+
+  border: 2px solid #000; /* 검은색 테두리 */
+  border-radius: 10px; /* 둥근 모서리, 필요에 따라 조정 */
+}
+
+.div6 {
+  color: #212121;
+  text-align: center; /* 텍스트 중앙 정렬 */
+  font-family: "MinSans-Medium", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  position: relative; /* 절대 위치에서 상대 위치로 변경 */
+  display: flex; /* flexbox 사용 */
+  align-items: center; /* 세로 중앙 정렬 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  width: 100%; /* 너비를 100%로 설정 */
+  height: 100%; /* 높이를 100%로 설정 */
+  box-sizing: border-box; /* 패딩과 경계를 포함한 크기 조정 */
+}
+
+.item-price {
+  background: #ffffff;
+  width: 124px;
+  height: 26px;
+  position: absolute;
+  left: calc(50% - 85px);
+  top: calc(50% - -15px);
+  overflow: hidden;
+}
+
+.item-days {
+  background: #ffffff;
+  width: 45px;
+  height: 26px;
+  position: absolute;
+  left: calc(50% - -42.5px);
+  top: calc(50% - -15px);
+  overflow: hidden;
+  font-size: 13px;
+}
+._2 {
+  color: #888888;
+  text-align: left;
+  font-family: "MinSans-Medium", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  position: absolute;
+  left: calc(50% - 20px);
+  top: calc(50% - 7px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 200px;
+}
+.item-card2 {
+  background: #dee8ff;
+  border-style: solid;
+  border-color: #f0f0f0;
+  border-width: 1px;
+  padding: 1px;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 186px;
+  position: relative;
+  overflow: hidden;
+}
+.unsplash-ad-k-3-vu-70-deq2 {
+  width: 187px;
+  height: 201px;
+  position: absolute;
+  left: calc(50% - 94px);
+  top: 0px;
+  object-fit: cover;
+}
+.item-name2 {
+  background: #ffffff;
+  width: 175px;
+  height: 26px;
+  position: absolute;
+  left: calc(50% - 88px);
+  top: calc(50% - 30px);
+  overflow: hidden;
+}
+.item-price2 {
+  background: #ffffff;
+  width: 124px;
+  height: 26px;
+  position: absolute;
+  left: calc(50% - 88px);
+  top: calc(50% - -4px);
+  overflow: hidden;
+}
+
+.item-days2 {
+  background: #ffffff;
+  width: 45px;
+  height: 26px;
+  position: absolute;
+  left: calc(50% - -42px);
+  top: calc(50% - -4px);
+  overflow: hidden;
+}
+.item-con-2 {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  width: 1025px;
+  position: absolute;
+  left: calc(50% - 512px);
+  top: 301px;
+}
+
+.item-card3 {
+  background: #dee8ff;
+  border-style: solid;
+  border-color: #f0f0f0;
+  border-width: 1px;
+  padding: 1px;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 187px;
+  position: relative;
+  overflow: hidden;
+}
+
+.item-con-3 {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: calc(50% - 511px);
+  top: 598px;
+}
+
+.item-con-4 {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  width: 1024px;
+  position: absolute;
+  left: calc(50% - 512px);
+  top: 894px;
+}
+
+.item-con-5 {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  width: 1024px;
+  position: absolute;
+  left: calc(50% - 512px);
+  top: 1190px;
+}
+
+.article-1 {
+  background: #ffffff;
+  width: 1920px;
+  height: 60px;
+  position: absolute;
+  left: calc(50% - 960px);
+  top: 0px;
+  overflow: hidden;
+}
+.article-2 {
+  background: #ffffff;
+  width: 1024px;
+  height: 60px;
+  position: absolute;
+  left: calc(50% - 505px);
+  top: 0px;
+  overflow: hidden;
+}
+.div7 {
+  color: #000000;
+  text-align: left;
+  font-family: "MinSans-Medium", sans-serif;
+  font-size: 25px;
+  font-weight: 500;
+  position: absolute;
+  left: 0px;
+  top: calc(50% - 16px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.sale-info {
+  background: #ffffff;
+  width: 206px;
+  height: 32px;
+  position: absolute;
+  left: calc(50% - -314px);
+  top: 499px;
+}
+.frame-13 {
+  background: #ffffff;
+  width: 79px;
+  height: 32px;
+  position: absolute;
+  left: 61px;
+  top: 0px;
+  overflow: hidden;
+}
+.div8 {
+  color: #666666;
+  text-align: left;
+  font-family: "MinSans-Medium", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  position: absolute;
+  left: calc(50% - 17.5px);
+  top: calc(50% - 8px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.frame-14 {
+  background: #ffffff;
+  width: 79px;
+  height: 32px;
+  position: absolute;
+  left: 140px;
+  top: 0px;
+  overflow: hidden;
+}
+.div9 {
+  color: #666666;
+  text-align: left;
+  font-family: "MinSans-Medium", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  position: absolute;
+  left: calc(50% - 30px);
+  top: calc(50% - 8px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.map {
+  background: #ffffff;
+  border-style: solid;
+  border-color: #666666;
+  border-width: 0.5px;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 98px;
+  position: absolute;
+  left: calc(50% - -527px);
+  top: 202px;
+  overflow: hidden;
+}
+.map2 {
+  flex-shrink: 0;
+  width: 73.14px;
+  height: 73.14px;
+  position: relative;
+  object-fit: cover;
+}
+.div10 {
+  color: #212121;
+  text-align: center;
+  font-family: "MinSans-Medium", sans-serif;
+  font-size: 14.509317398071289px;
+  font-weight: 500;
+  position: relative;
+  align-self: stretch;
+  height: 61.66px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.info-frame {
+  background: #ffffff;
+  border-style: solid;
+  border-color: #888888;
+  border-width: 0.5px;
+  width: 1024px;
+  height: 230px;
+  position: absolute;
+  left: calc(50% - 507px);
+  top: 202px;
+  overflow: hidden;
+}
+.info-image {
+  background: #ffffff;
+  border-style: solid;
+  border-color: #888888;
+  border-width: 0.5px;
+  width: 243px;
+  height: 230px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  overflow: hidden;
+}
+.user {
+  border-radius: 50%;
+  width: 157px;
+  height: 157px;
+  position: absolute;
+  left: calc(50% - 78.5px);
+  top: calc(50% - 78px);
+  object-fit: cover;
+  cursor: pointer;
+}
+.shop-name {
+  background: #ffffff;
+  width: 653px;
+  height: 60px;
+  position: absolute;
+  left: calc(50% - 222px);
+  top: 17px;
+  overflow: hidden;
+}
+.name-filed {
+  background: #ffffff;
+  border-style: solid;
+  border-color: #888888;
+  border-width: 0.5px;
+  padding: 12px 14px 12px 14px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 653px;
+  height: 36px;
+  position: absolute;
+  left: calc(50% - 326.5px);
+  top: 0px;
+  outline: none;
+}
+.div11 {
+  color: #212121;
+  text-align: left;
+  font-family: "MinSans-Medium", sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.button-1 {
+  position: absolute;
+  inset: 0;
+}
+
+.div12 {
+  color: #888888;
+  text-align: left;
+  font-family: "MinSans-Medium", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  position: absolute;
+  left: calc(50% - -264.5px);
+  top: calc(50% - -10px);
+  width: 66px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.shop-info {
+  background: #ffffff;
+  width: 653px;
+  height: 120px;
+  position: absolute;
+  left: calc(50% - 222px);
+  top: 81px;
+  overflow: hidden;
+}
+.info-filed {
+  background: #ffffff;
+  border-style: solid;
+  border-color: #888888;
+  border-width: 0.5px;
+  padding: 12px 14px 12px 14px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 653px;
+  height: 118px;
+  position: absolute;
+  left: calc(50% - 326.5px);
+  top: 0px;
+  outline: none;
+}
+.button-2 {
+  position: absolute;
+  inset: 0;
+}
+.rectangle-32 {
+  background: #ffffff;
+  border-style: solid;
+  border-color: #888888;
+  border-width: 0.5px;
+  width: 69px;
+  height: 21px;
+  position: absolute;
+  left: calc(50% - -257.5px);
+  top: 119px;
+}
+.div13 {
+  color: #888888;
+  text-align: left;
+  font-family: "MinSans-Medium", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  position: absolute;
+  left: 592px;
+  top: 122px;
+  width: 74px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* 수정 버튼 스타일 */
+.edit-button {
+  background-color: #ffffff;
+  color: 666666;
+  border: 1px solid #888888;
+  cursor: pointer;
+  font-size: 10px;
+  position: absolute;
+  top: 202px; /* 버튼 위치 조정 */
+  left: calc(50% - -311px);
+  width: 120px;
+  height: 21px;
+  z-index: 9999; /* z-index 추가 */
+}
+
+.edit-button2 {
+  background-color: #ffffff;
+  color: 666666;
+  border: 1px solid #888888;
+  cursor: pointer;
+  font-size: 10px;
+  position: relative;
+  top: 119px; /* 버튼 위치 조정 */
+  left: calc(50% - -254.5px);
+  width: 72px;
+  height: 21px;
+}
+
+/*카테고리 드롭다운*/
+
+/*카테고리 드롭다운*/
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  position: absolute; /* 절대 위치 설정 */
+  left: calc(50% - 512px); /* 왼쪽 위치 */
+  top: 150px; /* 상단 위치 */
+}
+
+.cate {
+  position: relative;
+  display: inline-block;
+  position: absolute; /* 절대 위치 설정 */
+  left: calc(50% - 460px); /* 왼쪽 위치 */
+  top: 150px; /* 상단 위치 */
+}
+
+.dropdown-menu {
+  display: none; /* 기본적으로 숨김 */
+  position: absolute;
+  top: 100%; /* 햄버거 메뉴 아래에 표시되도록 */
+  left: 0;
+  z-index: 1100;
+  width: 200px; /* 박스의 너비를 조정 */
+  padding: 20px; /* 드롭다운 박스 내부의 패딩 */
+  background-color: #fff; /* 배경색을 흰색으로 설정 */
+  border: 1px solid #ccc; /* 테두리 추가 */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+  border-radius: 4px; /* 모서리 둥글게 */
+  transition: opacity 0.3s ease; /* 부드러운 표시 효과 */
+  opacity: 0; /* 기본적으로 숨김 (투명하게) */
+}
+
+.dropdown-item {
+  padding: 10px 15px; /* 각 메뉴 아이템의 패딩(상하, 좌우) */
+  margin-bottom: 5px; /* 각 메뉴 아이템 사이 간격 */
+  display: block; /* 블록 형태로 설정 */
+  text-decoration: none; /* 링크에 밑줄 없애기 */
+  color: #333; /* 기본 텍스트 색상 */
+  background-color: #f8f8f8; /* 기본 배경색 */
+  border-radius: 4px; /* 모서리 둥글게 */
+  transition: background-color 0.3s, transform 0.2s; /* 부드러운 배경색 변화 및 약간의 크기 변화 효과 */
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block; /* 마우스 오버 시 보임 */
+  opacity: 1; /* 불투명하게 설정 */
+}
+.dropdown-item:hover {
+  background-color: #e0e0e0; /* 호버 시 배경색 변경 */
+  color: #000; /* 호버 시 텍스트 색상 변경 */
+  transform: scale(1.02); /* 호버 시 약간 확대 */
+}
+
+/* 햄버거 메뉴 스타일 */
+.hamburger-menu {
+  display: inline-block;
+  width: 22px;
+  height: 2px;
+  background-color: #333;
+  position: relative;
+}
+
+.hamburger-menu::before,
+.hamburger-menu::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 2px;
+  background-color: #333;
+  left: 0;
+}
+
+.hamburger-menu::before {
+  top: -9px; /* 첫 번째 선 */
+}
+
+.hamburger-menu::after {
+  top: 9px; /* 세 번째 선 */
+}
+
+.dropdown-title {
+  cursor: pointer;
+  padding: 10px;
+  background-color: #f0f0f0; /* 드롭다운 타이틀 배경색 */
+  border-radius: 4px; /* 드롭다운 타이틀 모서리 둥글게 */
+  transition: background-color 0.3s; /* 부드러운 배경색 변화 효과 */
+}
+
+.dropdown-title:hover {
+  background-color: #e0e0e0; /* 드롭다운 타이틀 호버 시 색상 변경 */
+}
+/* 자동 완성 창 스타일 */
+.suggestions-box {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #3b4890;
+  width: 460px; /* 검색창 너비에 맞추기 */
+  max-height: 200px; /* 최대 높이 설정 (스크롤 생성) */
+  overflow-y: auto;
+  display: none; /* 기본적으로 숨김 */
+  z-index: 2000; /* 상단에 표시 */
+  top: 100%; /* 검색창 바로 아래에 위치시키기 */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* 약간의 그림자 효과 */
+  left: -2px;
+}
+
+/* 자동 완성 목록 스타일 */
+.suggestions-box ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 자동 완성 항목 스타일 */
+.suggestions-box ul li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+/* 마우스를 올렸을 때 배경색 변경 */
+.suggestions-box ul li:hover {
+  background-color: #f0f0f0;
+}
+
+/* 자동 완성 항목 강조 표시 */
+.suggestion-item.highlighted {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+/* 링크 스타일 제거 */
+.suggestions-box ul li a {
+  text-decoration: none;
+  color: #333;
+}

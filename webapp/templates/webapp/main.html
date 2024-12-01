@@ -1,0 +1,260 @@
+<html lang="ko">
+  {% load custom_filters %}{% load humanize %}{% load static %} {% load static %}
+
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../../static/images/favicon.png" />
+    <link rel="stylesheet" href="../../static/css/main.css" />
+    <script src="../../static/scripts/categori.js"></script>
+    <title>별별마켓</title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="header">
+        <div class="header-2">
+          <div class="app-down">
+            <img
+              class="icon-app-download-2"
+              src="../../static/images/icon_app_download.png"
+              alt="앱 다운로드 아이콘"
+            />
+            <div class="div">앱다운로드</div>
+          </div>
+
+          <div class="sign-up">
+            {% if request.user.is_authenticated %}
+                {% if request.user.user_id == 4 %}
+                    <a href="{% url 'admin_page' %}" class="div3">관리자</a>
+                {% else %}
+                    <a href="{% url 'my_page' %}" class="div3">내 정보</a>
+                {% endif %}
+            {% else %}
+                <a href="{% url 'sign_up' %}" class="div3">회원가입</a>
+            {% endif %}
+          </div>
+        
+          <div class="sign-in">
+            {% if request.user.is_authenticated %}
+            <form method="POST" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <button type="submit" class="div2">로그아웃</button>
+            </form>
+            {% else %}
+            <a href="{% url 'sign_in' %}" class="div2">로그인</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="nav">
+        <div class="nav-2">
+          <div class="nav-3">
+            <a href="{% url 'main' %}">
+              <img
+                class="icon-market-1"
+                src="../../static/images/icon_market.svg"
+              />
+            </a>
+            <div class="menu-bar">
+              <div class="sale">
+                <img
+                  class="icon-sale-1"
+                  src="../../static/images/icon-sale.png"
+                />
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'product_sale' %}" class="div3">판매하기</a>
+                {% else %}
+                <a href="{% url 'sign_in' %}" class="div3">판매하기</a>
+                {% endif %}
+              </div>
+              <div class="my-shop">
+                <img
+                  class="icon-myshop-1"
+                  src="../../static/images/icon-myshop.png"
+                />
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'my_page' %}" class="div3">내상점</a>
+                {% else %}
+                <a href="{% url 'sign_in' %}" class="div3">내상점</a>
+                {% endif %}
+              </div>
+
+              <div class="chat">
+                <img
+                  class="icon-chat-1"
+                  src="../../static/images/icon-chat.png"
+                />
+                <a href="sign_in.html" class="div3">채팅</a>
+              </div>
+            </div>
+            <!-- 검색 -->
+            <form class="search-bar" method="GET" action="{% url 'search' %}">
+              {% csrf_token %}
+              <input
+                class="div4"
+                type="text"
+                placeholder="상품명 입력"
+                name="q"
+                id="searchInput"
+                aria-label="Search"
+                onkeyup="showSuggestions(this.value)"
+              />
+              <button type="submit" class="search-frame">
+                <img
+                  class="search"
+                  src="{% static 'images/search.svg' %}"
+                  id="searchButton"
+                  alt="검색"
+                />
+              </button>
+              <div id="suggestions" class="suggestions-box"></div> <!-- 자동완성 결과 표시 영역 -->
+            </form>
+          </div>
+            <div class="nav-4">
+          </div>
+        </div>
+      </div>
+      
+      <!-- 슬라이드 배너 -->
+      <div class="frame-1">
+        <div class="component-1">
+          <a
+            href="https://exhibition.bunjang.co.kr/viewer/digital2410"
+            target="_blank"
+          >
+            <img class="banner1-1" src="../../static/images/banner1.png" />
+          </a>
+          <a
+            href="https://www.nike.com/kr/w/fall-collection-jackets-vests-3cj6vz50r7y"
+            target="_blank"
+          >
+            <img class="banner2-1" src="../../static/images/banner2.png" />
+          </a>
+          <a href="https://kr.stussy.com/collections/hoodies" target="_blank">
+            <img class="banner3-1" src="../../static/images/banner3.png" />
+          </a>
+          <a
+            href="https://www.uniqlo.com/kr/ko/contents/collaboration/uniqlo-u/24fw/"
+            target="_blank"
+          >
+            <img class="banner4-1" src="../../static/images/banner4.png" />
+          </a>
+        </div>
+      </div>
+
+      <div class="article">
+        <div class="list">
+            <div class="item-con-1">
+                <!-- 상품 목록 반복 -->
+                {% for product in page_obj %}
+                <div class="item-card">
+                    <a href="{% url 'product_info' product.pk %}" class="product-link">
+                        상품 페이지 보러가기
+                    </a>
+    
+                    <!-- 상품 이미지 -->
+                    <div class="image-card">
+                        <img
+                        class="unsplash-ad-k-3-vu-70-deq"
+                            src="{{ product.product_image_url }}"
+                            alt="{{ product.product_name }}"
+                        />
+                    </div>
+    
+                    <!-- 상품 정보 -->
+                    <div class="item-info">
+                        <!-- 상품 이름 -->
+                        <div class="item-name">
+                            <div class="div6">{{ product.product_name }}</div>
+                        </div>
+    
+                        <!-- 상품 가격 -->
+                        <div class="item-price">
+                            <div class="_500-000">
+                                <span>
+                                    <span class="_500-000-span">{{ product.product_price|intcomma }}원</span>
+                                </span>
+                            </div>
+                        </div>
+    
+                        <!-- 상품 등록일 -->
+                        <div class="item-days">
+                            <div class="_2">
+                                {{ product.product_created_at|time_since }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div>등록된 상품이 없습니다.</div>
+                {% endfor %}
+            </div>
+
+            
+              
+            
+            
+            <!-- 페이지네이션 추가 -->
+            <div class="pagination">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                        <a href="?page=1">&laquo; 처음</a>
+                        <a href="?page={{ page_obj.previous_page_number }}">이전</a>
+                    {% endif %}
+      
+                    <!-- 페이지 번호 목록 -->
+                    {% for num in page_obj.paginator.page_range %}
+                        {% if num == page_obj.number %}
+                            <strong>{{ num }}</strong> <!-- 현재 페이지는 강조 -->
+                        {% else %}
+                            <a href="?page={{ num }}">{{ num }}</a>
+                        {% endif %}
+                    {% endfor %}
+      
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">다음</a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}">마지막 &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+        <div class="article-1">
+          <div class="article-2">
+            <div class="div7"> &nbsp;전체 매물</div>
+          </div>
+        </div>
+    </div>
+    
+    
+    
+    </div>
+    <!--메인-->
+
+    <a href="{% url 'map_page' %}">
+      <div class="map">
+        <img class="map2" src="../../static/images/icon_map.svg" />
+        <div class="div16">
+          우리동네
+          <br />
+          매물 보기
+        </div>
+      </div>
+    </a>
+    <div class="dropdown">
+      <div class="dropdown-title">
+          <span class="hamburger-menu"></span>
+      </div>
+      <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="{% url 'category_view' '1' %}">전자기기</a></li>
+          <li><a class="dropdown-item" href="{% url 'category_view' '2' %}">의류</a></li>
+          <li><a class="dropdown-item" href="{% url 'category_view' '3' %}">가구</a></li>
+          <li><a class="dropdown-item" href="{% url 'category_view' '4' %}">공구/도구</a></li>
+      </ul>
+    </div>
+    <div class = "cate">카테고리</div>
+    </div>
+    <!-- JavaScript 파일 연결 -->
+    <script src="{% static 'javascript/search.js' %}"></script>
+  </body>
+</html>

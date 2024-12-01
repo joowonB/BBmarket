@@ -1,0 +1,701 @@
+[
+    {
+        "user_id": 1,
+        "user_name": "algee",
+        "address": "인천 남동구 인주대로751번길 20-11, 201,  (구월동)",
+        "latitude": 37.4501494,
+        "longitude": 126.7214322,
+        "product_id": 2,
+        "product_name": "LG OLED TV",
+        "product_image_url": "/media/https%3A/example.com/images/lg_oled_tv.jpg"
+    },
+    {
+        "user_id": 4,
+        "user_name": "qwer",
+        "address": "구월1동1218-2, 드림타운1동403",
+        "latitude": 37.4447973,
+        "longitude": 126.7121378,
+        "product_id": 6,
+        "product_name": "123",
+        "product_image_url": "/media/media/imageprod/%EB%A0%8C%EA%B3%A0%EC%BF%A0.jpg"
+    },
+    {
+        "user_id": 4,
+        "user_name": "qwer",
+        "address": "구월1동1218-2, 드림타운1동403",
+        "latitude": 37.4447973,
+        "longitude": 126.7121378,
+        "product_id": 7,
+        "product_name": "달",
+        "product_image_url": "/media/media/imageprod/%EC%B9%B8%EB%A1%9C%EC%A7%80.jpg"
+    },
+    {
+        "user_id": 4,
+        "user_name": "qwer",
+        "address": "구월1동1218-2, 드림타운1동403",
+        "latitude": 37.4447973,
+        "longitude": 126.7121378,
+        "product_id": 8,
+        "product_name": "자전거",
+        "product_image_url": "/media/media/imageprod/wkwjsrj.jfif"
+    },
+    {
+        "user_id": 4,
+        "user_name": "qwer",
+        "address": "구월1동1218-2, 드림타운1동403",
+        "latitude": 37.4447973,
+        "longitude": 126.7121378,
+        "product_id": 9,
+        "product_name": "원숭이",
+        "product_image_url": "/media/media/imageprod/dnjstnddl.jfif"
+    },
+    {
+        "user_id": 4,
+        "user_name": "qwer",
+        "address": "구월1동1218-2, 드림타운1동403",
+        "latitude": 37.4447973,
+        "longitude": 126.7121378,
+        "product_id": 13,
+        "product_name": "오븐",
+        "product_image_url": "/media/media/imageprod/123.jfif"
+    },
+    {
+        "user_id": 4,
+        "user_name": "qwer",
+        "address": "구월1동1218-2, 드림타운1동403",
+        "latitude": 37.4447973,
+        "longitude": 126.7121378,
+        "product_id": 14,
+        "product_name": "맥북",
+        "product_image_url": "/media/media/imageprod/aorqnr.jfif"
+    },
+    {
+        "user_id": 4,
+        "user_name": "qwer",
+        "address": "구월1동1218-2, 드림타운1동403",
+        "latitude": 37.4447973,
+        "longitude": 126.7121378,
+        "product_id": 15,
+        "product_name": "휴대폰",
+        "product_image_url": "/media/media/imageprod/image.png"
+    },
+    {
+        "user_id": 4,
+        "user_name": "qwer",
+        "address": "구월1동1218-2, 드림타운1동403",
+        "latitude": 37.4447973,
+        "longitude": 126.7121378,
+        "product_id": 16,
+        "product_name": "모니터",
+        "product_image_url": "/media/media/imageprod/ahslxj.jfif"
+    },
+    {
+        "user_id": 4,
+        "user_name": "qwer",
+        "address": "구월1동1218-2, 드림타운1동403",
+        "latitude": 37.4447973,
+        "longitude": 126.7121378,
+        "product_id": 20,
+        "product_name": "삼성,LG 정품 미사용 매직리모컨 판매",
+        "product_image_url": "/media/media/imageprod/288573677_1_1729068743_w160.jpg"
+    },
+    {
+        "user_id": 4,
+        "user_name": "qwer",
+        "address": "구월1동1218-2, 드림타운1동403",
+        "latitude": 37.4447973,
+        "longitude": 126.7121378,
+        "product_id": 21,
+        "product_name": "도시바22년식 17평 천장형 냉난방기 팔아요.(실외기,리모컨 포함)11월",
+        "product_image_url": "/media/media/imageprod/294992452_1_1729625289_w1200.jpg"
+    },
+    {
+        "user_id": 4,
+        "user_name": "qwer",
+        "address": "구월1동1218-2, 드림타운1동403",
+        "latitude": 37.4447973,
+        "longitude": 126.7121378,
+        "product_id": 22,
+        "product_name": "휴브론뿌리고데기",
+        "product_image_url": "/media/media/imageprod/295976723_1_1729625034_w160.jpg"
+    },
+    {
+        "user_id": 4,
+        "user_name": "qwer",
+        "address": "구월1동1218-2, 드림타운1동403",
+        "latitude": 37.4447973,
+        "longitude": 126.7121378,
+        "product_id": 23,
+        "product_name": "통돌이세탁기",
+        "product_image_url": "/media/media/imageprod/ekfmstpxkrrl.jfif"
+    },
+    {
+        "user_id": 4,
+        "user_name": "qwer",
+        "address": "구월1동1218-2, 드림타운1동403",
+        "latitude": 37.4447973,
+        "longitude": 126.7121378,
+        "product_id": 24,
+        "product_name": "러닝머신팔아요",
+        "product_image_url": "/media/media/imageprod/fjsldajtls.jfif"
+    },
+    {
+        "user_id": 4,
+        "user_name": "qwer",
+        "address": "구월1동1218-2, 드림타운1동403",
+        "latitude": 37.4447973,
+        "longitude": 126.7121378,
+        "product_id": 25,
+        "product_name": "소형 냉장고",
+        "product_image_url": "/media/media/imageprod/sodwkdrh.jfif"
+    },
+    {
+        "user_id": 4,
+        "user_name": "qwer",
+        "address": "구월1동1218-2, 드림타운1동403",
+        "latitude": 37.4447973,
+        "longitude": 126.7121378,
+        "product_id": 26,
+        "product_name": "드럼세탁기(고장) ",
+        "product_image_url": "/media/media/imageprod/tpxkrrl.jfif"
+    },
+    {
+        "user_id": 4,
+        "user_name": "qwer",
+        "address": "구월1동1218-2, 드림타운1동403",
+        "latitude": 37.4447973,
+        "longitude": 126.7121378,
+        "product_id": 27,
+        "product_name": "전자레인지 팔아요",
+        "product_image_url": "/media/media/imageprod/wjswkfpdlswl.jfif"
+    },
+    {
+        "user_id": 4,
+        "user_name": "qwer",
+        "address": "구월1동1218-2, 드림타운1동403",
+        "latitude": 37.4447973,
+        "longitude": 126.7121378,
+        "product_id": 32,
+        "product_name": "풀 고대 침엽수",
+        "product_image_url": "/media/media/imageprod/%EC%BB%B4%ED%93%A8%ED%84%B0%EB%B0%B0%EA%B2%BD%ED%99%94%EB%A9%B4%EC%9E%90%EC%97%B006.jpg"
+    },
+    {
+        "user_id": 4,
+        "user_name": "qwer",
+        "address": "구월1동1218-2, 드림타운1동403",
+        "latitude": 37.4447973,
+        "longitude": 126.7121378,
+        "product_id": 36,
+        "product_name": "불 팔거에여????????",
+        "product_image_url": "/media/media/imageprod/qnfqnf.png"
+    },
+    {
+        "user_id": 4,
+        "user_name": "qwer",
+        "address": "구월1동1218-2, 드림타운1동403",
+        "latitude": 37.4447973,
+        "longitude": 126.7121378,
+        "product_id": 38,
+        "product_name": "모니터",
+        "product_image_url": "/media/media/imageprod/%EB%AA%A8%EB%8B%88%ED%84%B0.png"
+    },
+    {
+        "user_id": 4,
+        "user_name": "qwer",
+        "address": "구월1동1218-2, 드림타운1동403",
+        "latitude": 37.4447973,
+        "longitude": 126.7121378,
+        "product_id": 39,
+        "product_name": "정수기",
+        "product_image_url": "/media/media/imageprod/%EC%A0%95%EC%88%98%EA%B8%B0.png"
+    },
+    {
+        "user_id": 4,
+        "user_name": "qwer",
+        "address": "구월1동1218-2, 드림타운1동403",
+        "latitude": 37.4447973,
+        "longitude": 126.7121378,
+        "product_id": 40,
+        "product_name": "원숭이 우끼끼",
+        "product_image_url": "/media/media/imageprod/dnjstnddl.png"
+    },
+    {
+        "user_id": 14,
+        "user_name": "test01",
+        "address": "인천 남동구 인주대로751번길 20-11, 2층,  (구월동)",
+        "latitude": 37.4501494,
+        "longitude": 126.7214322,
+        "product_id": 28,
+        "product_name": "lg 디스틀레이 tv",
+        "product_image_url": "/media/media/imageprod/tv.jfif"
+    },
+    {
+        "user_id": 15,
+        "user_name": "test0001",
+        "address": "인천 남동구 인주대로751번길 20-11, 201호,  (구월동)",
+        "latitude": 37.4501494,
+        "longitude": 126.7214322,
+        "product_id": 29,
+        "product_name": "컴퓨터 팝니다",
+        "product_image_url": "/media/media/imageprod/%EC%BB%B4%ED%93%A8%ED%84%B0%EB%B3%B8%EC%B2%B4.jfif"
+    },
+    {
+        "user_id": 4,
+        "user_name": "qwer",
+        "address": "구월1동1218-2, 드림타운1동403",
+        "latitude": 37.4447973,
+        "longitude": 126.7121378,
+        "product_id": 41,
+        "product_name": "햄스터 티셔츠"
+    },
+    {
+        "user_id": 17,
+        "user_name": "김미미",
+        "address": "경기 부천시 소사구 경인로10번길 25-32, 1001호,  (송내동, 송내복사골뜨란채아파트)",
+        "latitude": 37.4811021,
+        "longitude": 126.7561316,
+        "product_id": 42,
+        "product_name": "오사카 티셔츠"
+    },
+    {
+        "user_id": 17,
+        "user_name": "김미미",
+        "address": "경기 부천시 소사구 경인로10번길 25-32, 1001호,  (송내동, 송내복사골뜨란채아파트)",
+        "latitude": 37.4811021,
+        "longitude": 126.7561316,
+        "product_id": 43,
+        "product_name": "점퍼"
+    },
+    {
+        "user_id": 18,
+        "user_name": "신대협",
+        "address": "경기 부천시 소사구 경인로26번길 22, 1301호,  (송내동, 송내 자이)",
+        "latitude": 37.48226349999999,
+        "longitude": 126.7573196,
+        "product_id": 44,
+        "product_name": "구두 팔아요"
+    },
+    {
+        "user_id": 18,
+        "user_name": "신대협",
+        "address": "경기 부천시 소사구 경인로26번길 22, 1301호,  (송내동, 송내 자이)",
+        "latitude": 37.48226349999999,
+        "longitude": 126.7573196,
+        "product_id": 45,
+        "product_name": "스커트"
+    },
+    {
+        "user_id": 19,
+        "user_name": "임태호",
+        "address": "경기 부천시 소사구 경인로134번길 27, 1803호,  (송내동, 삼익아파트)",
+        "latitude": 37.4828459,
+        "longitude": 126.7704198,
+        "product_id": 46,
+        "product_name": "신상 청바지"
+    },
+    {
+        "user_id": 19,
+        "user_name": "임태호",
+        "address": "경기 부천시 소사구 경인로134번길 27, 1803호,  (송내동, 삼익아파트)",
+        "latitude": 37.4828459,
+        "longitude": 126.7704198,
+        "product_id": 47,
+        "product_name": "핵간지 페도라"
+    },
+    {
+        "user_id": 20,
+        "user_name": "이상백",
+        "address": "인천 부평구 일신로39번길 44-5, 103호,  (일신동, 다임메가타운)",
+        "latitude": 37.4809998,
+        "longitude": 126.7487148,
+        "product_id": 48,
+        "product_name": "원피스"
+    },
+    {
+        "user_id": 20,
+        "user_name": "이상백",
+        "address": "인천 부평구 일신로39번길 44-5, 103호,  (일신동, 다임메가타운)",
+        "latitude": 37.4809998,
+        "longitude": 126.7487148,
+        "product_id": 49,
+        "product_name": "복서팬츠 팔아요"
+    },
+    {
+        "user_id": 21,
+        "user_name": "김동동",
+        "address": "인천 부평구 일신로39번길 6-9, 4001,  (일신동, 서광팰리스)",
+        "latitude": 37.4808429,
+        "longitude": 126.7466307,
+        "product_id": 50,
+        "product_name": "새삥구두"
+    },
+    {
+        "user_id": 21,
+        "user_name": "김동동",
+        "address": "인천 부평구 일신로39번길 6-9, 4001,  (일신동, 서광팰리스)",
+        "latitude": 37.4808429,
+        "longitude": 126.7466307,
+        "product_id": 51,
+        "product_name": "가죽자켓 팔아봅니다"
+    },
+    {
+        "user_id": 23,
+        "user_name": "고현우",
+        "address": "인천 부평구 일신로14번길 23, 1205호,  (일신동, 풍림아파트)",
+        "latitude": 37.4829199,
+        "longitude": 126.7440928,
+        "product_id": 52,
+        "product_name": "뒤집어 입는 고급 점퍼"
+    },
+    {
+        "user_id": 23,
+        "user_name": "고현우",
+        "address": "인천 부평구 일신로14번길 23, 1205호,  (일신동, 풍림아파트)",
+        "latitude": 37.4829199,
+        "longitude": 126.7440928,
+        "product_id": 53,
+        "product_name": "초 귀여운 티"
+    },
+    {
+        "user_id": 24,
+        "user_name": "김남웅",
+        "address": "경기 부천시 원미구 상일로 71, 806호,  (상동, 반달마을)",
+        "latitude": 37.4927635,
+        "longitude": 126.7500576,
+        "product_id": 54,
+        "product_name": "원목 테이블"
+    },
+    {
+        "user_id": 24,
+        "user_name": "김남웅",
+        "address": "경기 부천시 원미구 상일로 71, 806호,  (상동, 반달마을)",
+        "latitude": 37.4927635,
+        "longitude": 126.7500576,
+        "product_id": 55,
+        "product_name": "회사 접객용 소파"
+    },
+    {
+        "user_id": 26,
+        "user_name": "sanAndreas",
+        "address": "인천 부평구 수변로52번길 6, 301호,  (부개동, 성일아파트)",
+        "latitude": 37.490648,
+        "longitude": 126.7413929,
+        "product_id": 56,
+        "product_name": "고딕 장식용 소파"
+    },
+    {
+        "user_id": 26,
+        "user_name": "sanAndreas",
+        "address": "인천 부평구 수변로52번길 6, 301호,  (부개동, 성일아파트)",
+        "latitude": 37.490648,
+        "longitude": 126.7413929,
+        "product_id": 57,
+        "product_name": "게이밍체어"
+    },
+    {
+        "user_id": 27,
+        "user_name": "김햄찌",
+        "address": "인천 부평구 부일로 69, 502호,  (부개동, 부개역 푸르지오)",
+        "latitude": 37.4901819,
+        "longitude": 126.7378136,
+        "product_id": 58,
+        "product_name": "유리테이블"
+    },
+    {
+        "user_id": 27,
+        "user_name": "김햄찌",
+        "address": "인천 부평구 부일로 69, 502호,  (부개동, 부개역 푸르지오)",
+        "latitude": 37.4901819,
+        "longitude": 126.7378136,
+        "product_id": 59,
+        "product_name": "해먹체어"
+    },
+    {
+        "user_id": 28,
+        "user_name": "김힘찬",
+        "address": "인천 부평구 항동로75번길 11, 103호,  (일신동, 일신주공아파트)",
+        "latitude": 37.4821658,
+        "longitude": 126.7427267,
+        "product_id": 60,
+        "product_name": "원목 식탁"
+    },
+    {
+        "user_id": 28,
+        "user_name": "김힘찬",
+        "address": "인천 부평구 항동로75번길 11, 103호,  (일신동, 일신주공아파트)",
+        "latitude": 37.4821658,
+        "longitude": 126.7427267,
+        "product_id": 61,
+        "product_name": "세트 카우치"
+    },
+    {
+        "user_id": 29,
+        "user_name": "흥부자",
+        "address": "인천 부평구 구산로 14-2, 태일정공,  (일신동)",
+        "latitude": 37.4826024,
+        "longitude": 126.7510086,
+        "product_id": 62,
+        "product_name": "2층침대(계단포함)"
+    },
+    {
+        "user_id": 29,
+        "user_name": "흥부자",
+        "address": "인천 부평구 구산로 14-2, 태일정공,  (일신동)",
+        "latitude": 37.4826024,
+        "longitude": 126.7510086,
+        "product_id": 63,
+        "product_name": "서랍장"
+    },
+    {
+        "user_id": 30,
+        "user_name": "최도날드",
+        "address": "인천 부평구 경인로 1191, 맥도날드,  (구산동)",
+        "latitude": 37.4728528,
+        "longitude": 126.7535396,
+        "product_id": 64,
+        "product_name": "바 망해서 체어 팔아요"
+    },
+    {
+        "user_id": 30,
+        "user_name": "최도날드",
+        "address": "인천 부평구 경인로 1191, 맥도날드,  (구산동)",
+        "latitude": 37.4728528,
+        "longitude": 126.7535396,
+        "product_id": 65,
+        "product_name": "서랍테이블"
+    },
+    {
+        "user_id": 31,
+        "user_name": "전부처",
+        "address": "인천 부평구 경인로1185번길 15-25, 보명사,  (일신동)",
+        "latitude": 37.4849931,
+        "longitude": 126.7503058,
+        "product_id": 66,
+        "product_name": "공구 모음함 팔아요"
+    },
+    {
+        "user_id": 31,
+        "user_name": "전부처",
+        "address": "인천 부평구 경인로1185번길 15-25, 보명사,  (일신동)",
+        "latitude": 37.4849931,
+        "longitude": 126.7503058,
+        "product_id": 67,
+        "product_name": "그 잃어버린 십자드라이버"
+    },
+    {
+        "user_id": 33,
+        "user_name": "이초딩",
+        "address": "경기 부천시 소사구 경인로1185번길 27, 5학년일짱,  (송내동)",
+        "latitude": 37.485594,
+        "longitude": 126.7509943,
+        "product_id": 68,
+        "product_name": "면접떨어지면 불지르려했던거 팜"
+    },
+    {
+        "user_id": 33,
+        "user_name": "이초딩",
+        "address": "경기 부천시 소사구 경인로1185번길 27, 5학년일짱,  (송내동)",
+        "latitude": 37.485594,
+        "longitude": 126.7509943,
+        "product_id": 69,
+        "product_name": "몽키스패너"
+    },
+    {
+        "user_id": 34,
+        "user_name": "나비엔나",
+        "address": "경기 부천시 소사구 송내대로30번길 34, 욱일욱일,  (송내동)",
+        "latitude": 37.4855909,
+        "longitude": 126.755182,
+        "product_id": 70,
+        "product_name": "농업용 밧줄"
+    },
+    {
+        "user_id": 34,
+        "user_name": "나비엔나",
+        "address": "경기 부천시 소사구 송내대로30번길 34, 욱일욱일,  (송내동)",
+        "latitude": 37.4855909,
+        "longitude": 126.755182,
+        "product_id": 71,
+        "product_name": "뺀치 팔아요"
+    },
+    {
+        "user_id": 35,
+        "user_name": "최현우",
+        "address": "경기 부천시 소사구 경인로133번길 23, 301호,  (송내동, 부천 중동역 2차 푸르지오 B단지)",
+        "latitude": 37.4849422,
+        "longitude": 126.769597,
+        "product_id": 72,
+        "product_name": "미싱"
+    },
+    {
+        "user_id": 35,
+        "user_name": "최현우",
+        "address": "경기 부천시 소사구 경인로133번길 23, 301호,  (송내동, 부천 중동역 2차 푸르지오 B단지)",
+        "latitude": 37.4849422,
+        "longitude": 126.769597,
+        "product_id": 73,
+        "product_name": "세탁기"
+    },
+    {
+        "user_id": 35,
+        "user_name": "최현우",
+        "address": "경기 부천시 소사구 경인로133번길 23, 301호,  (송내동, 부천 중동역 2차 푸르지오 B단지)",
+        "latitude": 37.4849422,
+        "longitude": 126.769597,
+        "product_id": 74,
+        "product_name": "전동킥보드"
+    },
+    {
+        "user_id": 35,
+        "user_name": "최현우",
+        "address": "경기 부천시 소사구 경인로133번길 23, 301호,  (송내동, 부천 중동역 2차 푸르지오 B단지)",
+        "latitude": 37.4849422,
+        "longitude": 126.769597,
+        "product_id": 75,
+        "product_name": "다이슨 무선 헤어드라이어"
+    },
+    {
+        "user_id": 35,
+        "user_name": "최현우",
+        "address": "경기 부천시 소사구 경인로133번길 23, 301호,  (송내동, 부천 중동역 2차 푸르지오 B단지)",
+        "latitude": 37.4849422,
+        "longitude": 126.769597,
+        "product_id": 76,
+        "product_name": "신상 마우스"
+    },
+    {
+        "user_id": 35,
+        "user_name": "최현우",
+        "address": "경기 부천시 소사구 경인로133번길 23, 301호,  (송내동, 부천 중동역 2차 푸르지오 B단지)",
+        "latitude": 37.4849422,
+        "longitude": 126.769597,
+        "product_id": 77,
+        "product_name": "선풍기"
+    },
+    {
+        "user_id": 35,
+        "user_name": "최현우",
+        "address": "경기 부천시 소사구 경인로133번길 23, 301호,  (송내동, 부천 중동역 2차 푸르지오 B단지)",
+        "latitude": 37.4849422,
+        "longitude": 126.769597,
+        "product_id": 78,
+        "product_name": "에어팟프로1세대"
+    },
+    {
+        "user_id": 36,
+        "user_name": "핫스왑",
+        "address": "경기 부천시 소사구 심곡로 41, 바보스,  (심곡본동)",
+        "latitude": 37.4801731,
+        "longitude": 126.7755515,
+        "product_id": 79,
+        "product_name": "개습기"
+    },
+    {
+        "user_id": 36,
+        "user_name": "핫스왑",
+        "address": "경기 부천시 소사구 심곡로 41, 바보스,  (심곡본동)",
+        "latitude": 37.4801731,
+        "longitude": 126.7755515,
+        "product_id": 80,
+        "product_name": "오븐렌지 팜"
+    },
+    {
+        "user_id": 36,
+        "user_name": "핫스왑",
+        "address": "경기 부천시 소사구 심곡로 41, 바보스,  (심곡본동)",
+        "latitude": 37.4801731,
+        "longitude": 126.7755515,
+        "product_id": 81,
+        "product_name": "스팀 다리미"
+    },
+    {
+        "user_id": 36,
+        "user_name": "핫스왑",
+        "address": "경기 부천시 소사구 심곡로 41, 바보스,  (심곡본동)",
+        "latitude": 37.4801731,
+        "longitude": 126.7755515,
+        "product_id": 82,
+        "product_name": "커피 프레스"
+    },
+    {
+        "user_id": 36,
+        "user_name": "핫스왑",
+        "address": "경기 부천시 소사구 심곡로 41, 바보스,  (심곡본동)",
+        "latitude": 37.4801731,
+        "longitude": 126.7755515,
+        "product_id": 83,
+        "product_name": "정수기"
+    },
+    {
+        "user_id": 36,
+        "user_name": "핫스왑",
+        "address": "경기 부천시 소사구 심곡로 41, 바보스,  (심곡본동)",
+        "latitude": 37.4801731,
+        "longitude": 126.7755515,
+        "product_id": 84,
+        "product_name": "무선마이크"
+    },
+    {
+        "user_id": 36,
+        "user_name": "핫스왑",
+        "address": "경기 부천시 소사구 심곡로 41, 바보스,  (심곡본동)",
+        "latitude": 37.4801731,
+        "longitude": 126.7755515,
+        "product_id": 85,
+        "product_name": "닌텐도 스위치"
+    },
+    {
+        "user_id": 36,
+        "user_name": "핫스왑",
+        "address": "경기 부천시 소사구 심곡로 41, 바보스,  (심곡본동)",
+        "latitude": 37.4801731,
+        "longitude": 126.7755515,
+        "product_id": 86,
+        "product_name": "플스 4 와이프한테 걸림"
+    },
+    {
+        "user_id": 36,
+        "user_name": "핫스왑",
+        "address": "경기 부천시 소사구 심곡로 41, 바보스,  (심곡본동)",
+        "latitude": 37.4801731,
+        "longitude": 126.7755515,
+        "product_id": 87,
+        "product_name": "갤럭시 탭"
+    },
+    {
+        "user_id": 36,
+        "user_name": "핫스왑",
+        "address": "경기 부천시 소사구 심곡로 41, 바보스,  (심곡본동)",
+        "latitude": 37.4801731,
+        "longitude": 126.7755515,
+        "product_id": 88,
+        "product_name": "노트북 꾸져서 팔아요"
+    },
+    {
+        "user_id": 36,
+        "user_name": "핫스왑",
+        "address": "경기 부천시 소사구 심곡로 41, 바보스,  (심곡본동)",
+        "latitude": 37.4801731,
+        "longitude": 126.7755515,
+        "product_id": 89,
+        "product_name": "와! 샌디스크 아시는구나"
+    },
+    {
+        "user_id": 36,
+        "user_name": "핫스왑",
+        "address": "경기 부천시 소사구 심곡로 41, 바보스,  (심곡본동)",
+        "latitude": 37.4801731,
+        "longitude": 126.7755515,
+        "product_id": 90,
+        "product_name": "공기청정기"
+    },
+    {
+        "user_id": 36,
+        "user_name": "핫스왑",
+        "address": "경기 부천시 소사구 심곡로 41, 바보스,  (심곡본동)",
+        "latitude": 37.4801731,
+        "longitude": 126.7755515,
+        "product_id": 91,
+        "product_name": "공기청정기 테무산"
+    }
+]

@@ -1,0 +1,45 @@
+@font-face {
+    font-family: "MinSans-Regular";
+    src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Regular.woff")
+      format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  * {
+    font-family: "MinSans";
+  }
+  
+  * {
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  .suggestions-box {
+    position: absolute;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;  /* 기본적으로 숨김 */
+    z-index: 1000;
+  }
+  
+  .suggestions-box ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .suggestions-box ul li {
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  .suggestions-box ul li:hover {
+    background-color: #f0f0f0;
+  }

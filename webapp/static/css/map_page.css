@@ -1,0 +1,550 @@
+@font-face {
+  font-family: "MinSans-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: "MinSans";
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*헤더, 네비게이션 부분 링크 밑줄 제거*/
+.header a,
+.nav a {
+  text-decoration: none; /* 기본적인 밑줄 제거 */
+}
+
+.map-page,
+.map-page * {
+  box-sizing: border-box;
+}
+.map-page {
+  background: #ffffff;
+  height: 967px;
+  position: relative;
+  overflow: hidden;
+}
+.header {
+  background: #ffffff;
+  width: 1920px;
+  height: 40px;
+  position: absolute;
+  left: calc(50% - 960px);
+  top: 0px;
+  overflow: hidden;
+  border-bottom: 1px solid rgb(238, 238, 238);
+}
+.header-2 {
+  background: #ffffff;
+  width: 1024px;
+  height: 40px;
+  position: absolute;
+  left: calc(50% - 512px);
+  top: calc(50% - 20px);
+  overflow: hidden;
+}
+.app-down {
+  background: #ffffff;
+  width: 110px;
+  height: 40px;
+  position: absolute;
+  left: 8px;
+  top: calc(50% - 20px);
+  overflow: hidden;
+}
+.icon-app-download-2 {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 0px;
+  top: calc(50% - 8px);
+  object-fit: cover;
+}
+.div {
+  color: #666666;
+  text-align: left;
+  font-family: "MinSans-Medium", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  position: absolute;
+  left: calc(50% - 35px);
+  top: calc(50% - 8px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.sign-up {
+  background: #ffffff;
+  width: 53px;
+  height: 40px;
+  position: absolute;
+  left: 971px;
+  top: calc(50% - 20px);
+  overflow: hidden;
+}
+/* .div2 클래스 스타일 */
+.div2 {
+  color: #666666;
+  text-align: left;
+  font-family: "MinSans-Medium", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  position: absolute;
+  left: 0px;
+  top: calc(50% - 8px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+button {
+  background: none; /* 기본 배경 제거 */
+  border: none; /* 기본 테두리 제거 */
+  padding: 0; /* 패딩 제거 */
+  cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+}
+/* 버튼에 대한 추가 스타일 */
+button.div2 {
+  border: none; /* 테두리 없애기 */
+  border-radius: 4px; /* 모서리 둥글게 설정 */
+  background-color: transparent; /* 배경색 설정 */
+  cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+}
+
+.sign-in {
+  background: #ffffff;
+  width: 53px;
+  height: 40px;
+  position: absolute;
+  left: 914px;
+  top: calc(50% - 20px);
+  overflow: hidden;
+}
+.nav {
+  background: #ffffff;
+  width: 1920px;
+  height: 162px;
+  position: absolute;
+  left: calc(50% - 960px);
+  top: 40px;
+  border-bottom: 1px solid rgb(238, 238, 238);
+}
+.nav-2 {
+  background: #c8eed2;
+  width: 1024px;
+  height: 145px;
+  position: absolute;
+  left: calc(50% - 512px);
+  top: calc(50% - 73px);
+}
+.nav-3 {
+  background: #ffffff;
+  width: 1024px;
+  height: 96px;
+  position: absolute;
+  left: calc(50% - 512px);
+  top: 0px;
+
+}
+.icon-market-1 {
+  width: 136px;
+  height: 40px;
+  position: absolute;
+  left: 0px;
+  top: calc(50% - 20px);
+  overflow: visible;
+}
+.menu-bar {
+  background: #ffffff;
+  width: 328px;
+  height: 26px;
+  position: absolute;
+  left: 696px;
+  top: calc(50% - 13px);
+  overflow: hidden;
+}
+.sale {
+  background: #ffffff;
+  width: 88px;
+  height: 26px;
+  position: absolute;
+  left: 69px;
+  top: calc(50% - 13px);
+  overflow: hidden;
+}
+.icon-sale-1 {
+  width: 23.4px;
+  height: 26px;
+  position: absolute;
+  left: 14px;
+  top: calc(50% - 13px);
+  object-fit: cover;
+}
+.div3 {
+  color: #212121;
+  text-align: left;
+  font-family: "MinSans-Medium", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  position: absolute;
+  right: 0px;
+  top: calc(50% - 8px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.my-shop {
+  background: #ffffff;
+  width: 79px;
+  height: 26px;
+  position: absolute;
+  left: 169px;
+  top: calc(50% - 13px);
+  overflow: hidden;
+}
+.icon-myshop-1 {
+  width: 23.2px;
+  height: 24px;
+  position: absolute;
+  left: 16px;
+  top: calc(50% - 12px);
+  object-fit: cover;
+}
+.chat {
+  background: #ffffff;
+  width: 67px;
+  height: 26px;
+  position: absolute;
+  left: 261px;
+  top: calc(50% - 13px);
+  overflow: hidden;
+}
+.icon-chat-1 {
+  width: 23.2px;
+  height: 24px;
+  position: absolute;
+  left: calc(50% - 16.5px);
+  top: calc(50% - 12px);
+  object-fit: cover;
+}
+.search-bar {
+  background: #ffffff;
+  border-style: solid;
+  border-color: #3b4890;
+  border-width: 2px;
+  padding: 12px 14px 12px 14px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 460px;
+  height: 40px;
+  position: absolute;
+  left: 236px;
+  top: calc(50% - 20px);
+}
+.div4 {
+  color: #666666;
+  text-align: left;
+  font-family: "MinSans-Medium", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  position: relative;
+  width: 390px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border: none;
+  outline: none;
+}
+.search-frame {
+  flex-shrink: 0;
+  width: 35px;
+  height: 21px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.search {
+  height: auto;
+  position: absolute;
+  left: 10px;
+  top: 1.5px;
+  overflow: visible;
+}
+.nav-4 {
+  background: #ffffff;
+  width: 1024px;
+  height: 49px;
+  position: absolute;
+  left: calc(50% - 512px);
+  top: 96px;
+  overflow: hidden;
+}
+.categori {
+  background: #ffffff;
+  width: 98px;
+  height: 35px;
+  position: absolute;
+  left: 6px;
+  top: 7px;
+  overflow: hidden;
+}
+.categori-1 {
+  width: 20px;
+  height: 16px;
+  position: absolute;
+  left: 0px;
+  top: calc(50% - 7.5px);
+  object-fit: cover;
+}
+.div5 {
+  color: #212121;
+  text-align: left;
+  font-family: "MinSans-Medium", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  position: absolute;
+  left: calc(50% - 15px);
+  top: calc(50% - 10.5px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.map {
+  background: #ffffff;
+  border-style: solid;
+  border-color: #666666;
+  border-width: 0.5px;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 98px;
+  position: absolute;
+  left: calc(50% - -527px);
+  top: 202px;
+  overflow: hidden;
+}
+.map2 {
+  flex-shrink: 0;
+  width: 73.14px;
+  height: 73.14px;
+  position: relative;
+  object-fit: cover;
+}
+.div6 {
+  color: #212121;
+  text-align: center;
+  font-family: "MinSans-Medium", sans-serif;
+  font-size: 14.509317398071289px;
+  font-weight: 500;
+  position: relative;
+  align-self: stretch;
+  height: 61.66px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.frame-19 {
+  background: #ffffff;
+  border-style: solid;
+  border-color: #b2b0b0;
+  border-width: 1px;
+  width: 1024px;
+  height: 577px;
+  position: absolute;
+  left: calc(50% - 512px);
+  top: 275px;
+  overflow: hidden;
+}
+.frame-20 {
+  background: #ffffff;
+  border-style: solid;
+  border-color: #ffffff;
+  border-width: 1px;
+  width: 461px;
+  height: 73px;
+  position: absolute;
+  left: calc(50% - 512px);
+  top: 202px;
+  overflow: hidden;
+  z-index: 100;
+}
+.map-title {
+  background: #ffffff;
+  width: 461px;
+  height: 73px;
+  position: absolute;
+  left: calc(50% - 512px);
+  top: 0px;
+  z-index: 1100;
+}
+.map-title2 {
+  top: 10px;
+}
+.div7 {
+  color: #000000;
+  text-align: left;
+  font-family: "MinSans-Medium", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  position: absolute;
+  left: calc(50% - 230.5px);
+  top: 31px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/*카테고리 드롭다운*/
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  position: absolute; /* 절대 위치 설정 */
+  left: calc(50% - 512px); /* 왼쪽 위치 */
+  top: 150px; /* 상단 위치 */
+}
+
+.cate {
+  position: relative;
+  display: inline-block;
+  position: absolute; /* 절대 위치 설정 */
+  left: calc(50% - 460px); /* 왼쪽 위치 */
+  top: 150px; /* 상단 위치 */
+}
+
+.dropdown-menu {
+  display: none; /* 기본적으로 숨김 */
+  position: absolute;
+  top: 100%; /* 햄버거 메뉴 아래에 표시되도록 */
+  left: 0;
+  z-index: 1100;
+  width: 200px; /* 박스의 너비를 조정 */
+  padding: 20px; /* 드롭다운 박스 내부의 패딩 */
+  background-color: #fff; /* 배경색을 흰색으로 설정 */
+  border: 1px solid #ccc; /* 테두리 추가 */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+  border-radius: 4px; /* 모서리 둥글게 */
+  transition: opacity 0.3s ease; /* 부드러운 표시 효과 */
+  opacity: 0; /* 기본적으로 숨김 (투명하게) */
+}
+
+.dropdown-item {
+  padding: 10px 15px; /* 각 메뉴 아이템의 패딩(상하, 좌우) */
+  margin-bottom: 5px; /* 각 메뉴 아이템 사이 간격 */
+  display: block; /* 블록 형태로 설정 */
+  text-decoration: none; /* 링크에 밑줄 없애기 */
+  color: #333; /* 기본 텍스트 색상 */
+  background-color: #f8f8f8; /* 기본 배경색 */
+  border-radius: 4px; /* 모서리 둥글게 */
+  transition: background-color 0.3s, transform 0.2s; /* 부드러운 배경색 변화 및 약간의 크기 변화 효과 */
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block; /* 마우스 오버 시 보임 */
+  opacity: 1; /* 불투명하게 설정 */
+}
+.dropdown-item:hover {
+  background-color: #e0e0e0; /* 호버 시 배경색 변경 */
+  color: #000; /* 호버 시 텍스트 색상 변경 */
+  transform: scale(1.02); /* 호버 시 약간 확대 */
+}
+
+/* 햄버거 메뉴 스타일 */
+.hamburger-menu {
+  display: inline-block;
+  width: 22px;
+  height: 2px;
+  background-color: #333;
+  position: relative;
+}
+
+.hamburger-menu::before,
+.hamburger-menu::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 2px;
+  background-color: #333;
+  left: 0;
+}
+
+.hamburger-menu::before {
+  top: -9px; /* 첫 번째 선 */
+}
+
+.hamburger-menu::after {
+  top: 9px; /* 세 번째 선 */
+}
+
+.dropdown-title {
+  cursor: pointer;
+  padding: 10px;
+  background-color: #f0f0f0; /* 드롭다운 타이틀 배경색 */
+  border-radius: 4px; /* 드롭다운 타이틀 모서리 둥글게 */
+  transition: background-color 0.3s; /* 부드러운 배경색 변화 효과 */
+}
+
+.dropdown-title:hover {
+  background-color: #e0e0e0; /* 드롭다운 타이틀 호버 시 색상 변경 */
+}
+
+
+/* 자동 완성 창 스타일 */
+.suggestions-box {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #3b4890;
+  width: 460px; /* 검색창 너비에 맞추기 */
+  max-height: 200px; /* 최대 높이 설정 (스크롤 생성) */
+  overflow-y: auto;
+  display: none; /* 기본적으로 숨김 */
+  z-index: 2000; /* 상단에 표시 */
+  top: 100%; /* 검색창 바로 아래에 위치시키기 */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* 약간의 그림자 효과 */
+  left: -2px;
+}
+
+/* 자동 완성 목록 스타일 */
+.suggestions-box ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 자동 완성 항목 스타일 */
+.suggestions-box ul li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+/* 마우스를 올렸을 때 배경색 변경 */
+.suggestions-box ul li:hover {
+  background-color: #f0f0f0;
+}
+
+/* 자동 완성 항목 강조 표시 */
+.suggestion-item.highlighted {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+/* 링크 스타일 제거 */
+.suggestions-box ul li a {
+  text-decoration: none;
+  color: #333;
+}
